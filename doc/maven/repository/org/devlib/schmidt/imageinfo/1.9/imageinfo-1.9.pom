@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.devlib.schmidt</groupId>
+	<artifactId>imageinfo</artifactId>
+	<name>ImageInfo</name>
+	<version>1.9</version>
+	<description>A free Java class to retrieve properties from image files</description>
+	<url>http://schmidt.devlib.org/image-info/</url>
+	<licenses>
+		<license>
+			<name>Public Domain</name>
+		</license>
+	</licenses>
+	<properties>
+		<project.build.sourceEncoding>
+			UTF-8
+		</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.2</source>
+					<target>1.2</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

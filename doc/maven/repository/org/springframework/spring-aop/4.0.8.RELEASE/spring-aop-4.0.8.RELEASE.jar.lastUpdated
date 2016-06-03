@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu May 19 22:30:17 CST 2016
+http\://download.java.net/maven/2/.lastUpdated=1463666364547
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463666362778
+http\://repo.spring.io/release/.lastUpdated=1463668217622
+http\://download.java.net/maven/2/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.springframework\:spring-aop\:jar\:4.0.8.RELEASE from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Connection refused\: connect

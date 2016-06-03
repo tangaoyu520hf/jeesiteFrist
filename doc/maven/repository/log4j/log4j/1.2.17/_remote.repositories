@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Feb 18 22:33:05 CST 2016
+log4j-1.2.17.jar>=
+log4j-1.2.17.pom>central=
+log4j-1.2.17.pom>oschina-repos=
+log4j-1.2.17-sources.jar>oschina-repos=
+log4j-1.2.17.jar>oschina-repos=

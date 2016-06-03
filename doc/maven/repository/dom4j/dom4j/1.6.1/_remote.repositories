@@ -1,0 +1,7 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Feb 18 22:33:00 CST 2016
+dom4j-1.6.1.jar>=
+dom4j-1.6.1.pom>oschina-repos=
+dom4j-1.6.1.pom>central=
+dom4j-1.6.1.jar>oschina-repos=
+dom4j-1.6.1-sources.jar>oschina-repos=

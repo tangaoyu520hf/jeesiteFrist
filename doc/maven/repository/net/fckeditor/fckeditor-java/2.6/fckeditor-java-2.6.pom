@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2004-2010 Frederico Caldeira Knabben
+ * 
+ * == BEGIN LICENSE ==
+ * 
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ * 
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ * 
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ * 
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ * 
+ * == END LICENSE ==
+ * @version: $Id: pom.xml 4830 2009-12-28 14:49:23Z mosipov $
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.fckeditor</groupId>
+	<artifactId>fckeditor-java</artifactId>
+	<version>2.6</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>java-core</module>
+		<module>java-demo</module>
+	</modules>
+	<properties>
+		<project.build.sourceEncoding>
+			UTF-8
+		</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>
+			UTF-8
+		</project.reporting.outputEncoding>
+		<!-- SLF4J version range [1.5.5,1.6) won't work due to http://jira.codehaus.org/browse/MNG-3806 -->
+		<slf4j.version>1.5.8</slf4j.version>
+		<!-- site plugin properties for Velocity -->
+		<slf4jVersion>${slf4j.version}</slf4jVersion>
+		<currentVersion>${version}</currentVersion>
+		<FCKeditorVersion>2.6.5</FCKeditorVersion>
+		<ticketUrl>${issueManagement.url}ticket</ticketUrl>
+		<minMavenVersion>${prerequisites.maven}</minMavenVersion>
+	</properties>
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<!-- for future Maven 2.1 use -->
+		<!--<sourceEncoding>UTF-8</sourceEncoding>-->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>2.0.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.6.1</version>
+					<configuration>
+					<detectOfflineLinks>false</detectOfflineLinks>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>
+								true
+							</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-URL>
+								${project.url}
+							</Implementation-URL>
+							<Built-By>${organization.name}</Built-By>
+						</manifestEntries>
+					</archive>
+					<show>package</show>
+					<docfilessubdirs>true</docfilessubdirs>
+					<keywords>true</keywords>
+				</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.1</version>
+					<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>
+								true
+							</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<Implementation-URL>
+								${project.url}
+							</Implementation-URL>
+							<Built-By>${organization.name}</Built-By>
+						</manifestEntries>
+					</archive>
+					<excludes>
+						<exclude>**/package-info.java</exclude>
+					</excludes>
+					<excludeResources>true</excludeResources>
+				</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.0-beta-9</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.4.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1-beta-1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2-beta-4</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>
+									true
+								</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Implementation-URL>
+									${project.url}
+								</Implementation-URL>
+								<Built-By>${organization.name}</Built-By>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>jsr14</target>
+					<excludes>
+						<exclude>**/package-info.java</exclude>
+					</excludes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>test-compiler</id>
+						<phase>process-test-sources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+						<configuration>
+							<source>1.5</source>
+							<target>1.5</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>
+							src/main/assembly/src.xml
+						</descriptor>
+						<descriptor>
+							src/main/assembly/bin.xml
+						</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>rewrite-site-links</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy overwrite="true" todir="src/site" flatten="true">
+									<fileset dir="..">
+										<include name="src/site/site.xml" />
+									</fileset>
+								</copy>
+								<replace value="&lt;src&gt;../" token="&lt;src&gt;/" dir="..">
+									<include name="${pom.artifactId}/src/site/site.xml" />
+									<exclude name="fckeditor-java/src/site/site.xml" />
+								</replace>
+								<replace value="href=&quot;../" token="href=&quot;/" dir="..">
+									<include name="${pom.artifactId}/src/site/site.xml" />
+									<exclude name="fckeditor-java/src/site/site.xml" />
+								</replace>
+								<replace value="href=&quot;" token="href=&quot;../${pom.artifactId}/" dir="..">
+									<include name="${pom.artifactId}/src/site/site.xml" />
+									<exclude name="fckeditor-java/src/site/site.xml" />
+								</replace>
+								<replace value="href=&quot;../images" token="href=&quot;images" dir="..">
+									<include name="${pom.artifactId}/src/site/site.xml" />
+									<exclude name="fckeditor-java/src/site/site.xml" />
+								</replace>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant</groupId>
+						<artifactId>ant-nodeps</artifactId>
+						<version>1.6.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<!-- for future Maven 2.1 use -->
+		<!-- <outputEncoding>UTF-8</outputEncoding> -->
+		<plugins>
+			<plugin>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+				<version>2.1.2</version>
+				<inherited>false</inherited>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>issue-tracking</report>
+							<report>mailing-list</report>
+							<report>license</report>
+							<report>summary</report>
+							<report>project-team</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<!-- Version 2.1 fails due to MCHANGES-137 -->
+				<version>2.0</version>
+				<configuration>
+					<issueLinkTemplate>
+						%URL%/ticket/%ISSUE%
+					</issueLinkTemplate>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>changes-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<name>FCKeditor.Java Integration</name>
+	<description>
+		The FCKeditor.Java Integration fosters the entire project
+		documentation, the Java library, and a drop-in demo webapp. All
+		three depict and enable you to learn and to integrate the
+		FCKeditor in your web environment.
+	</description>
+	<url>http://java.fckeditor.net</url>
+	<inceptionYear>2004</inceptionYear>
+	<licenses>
+		<license>
+			<name>GPL, LGPL, MPL</name>
+			<url>LICENSE.txt</url>
+		</license>
+	</licenses>
+	<organization>
+		<name>Frederico Caldeira Knabben</name>
+		<url>http://www.fredck.com</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>fredck</id>
+			<name>Frederico Caldeira Knabben</name>
+			<url>http://www.fredck.com</url>
+			<organization>FredCK.com</organization>
+			<organizationUrl>http://www.fredck.com</organizationUrl>
+			<roles>
+				<role>Head Project Manager</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>th-schwarz</id>
+			<name>Thilo Schwarz</name>
+			<email>thilo.schwarz AT gmail.com</email>
+			<url>http://www.s-th.info</url>
+			<organization>Poor Man's CMS</organization>
+			<organizationUrl>http://poormans.sf.net</organizationUrl>
+			<roles>
+				<role>Project Manager</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+		<developer>
+			<id>mosipov</id>
+			<name>Michael Osipov</name>
+			<email>michael-o AT users.sourceforge.net</email>
+			<roles>
+				<role>Project Manager</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>+1</timezone>
+		</developer>
+	</developers>
+	<issueManagement>
+		<system>Trac</system>
+		<url>http://dev.fckeditor.net/</url>
+	</issueManagement>
+	<mailingLists>
+		<mailingList>
+			<name>FCKeditor Developers List</name>
+			<subscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-developers
+			</subscribe>
+			<unsubscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-developers
+			</unsubscribe>
+			<archive>
+				http://sourceforge.net/mailarchive/forum.php?forum_name=fckeditor-developers
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>FCKeditor Testers List</name>
+			<subscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-testers
+			</subscribe>
+			<unsubscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-testers
+			</unsubscribe>
+			<archive>
+				http://sourceforge.net/mailarchive/forum.php?forum_name=fckeditor-testers
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>FCKeditor Trac Activity</name>
+			<subscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-trac
+			</subscribe>
+			<unsubscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-trac
+			</unsubscribe>
+		</mailingList>
+		<mailingList>
+			<name>FCKeditor Commits List</name>
+			<subscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-commits
+			</subscribe>
+			<unsubscribe>
+				https://lists.sourceforge.net/lists/listinfo/fckeditor-commits
+			</unsubscribe>
+		</mailingList>
+	</mailingLists>
+	<scm>
+		<connection>
+			scm:svn:http://svn.fckeditor.net/FCKeditor.Java/tags/2.6
+		</connection>
+		<developerConnection>
+			scm:svn:https://svn.fckeditor.net/FCKeditor.Java/tags/2.6
+		</developerConnection>
+		<url>http://dev.fckeditor.net/browser/FCKeditor.Java/tags/2.6</url>
+	</scm>
+	<prerequisites>
+		<maven>2.0.10</maven>
+	</prerequisites>
+	<distributionManagement>
+		<repository>
+			<id>local</id>
+			<url>file:///home/mosipov/public_html/m2repo</url>
+		</repository>
+		<snapshotRepository>
+			<id>local</id>
+			<url>file:///home/mosipov/public_html/m2repo-snapshots</url>
+		</snapshotRepository>
+		<site>
+			<id>local</id>
+			<url>file:///home/mosipov/public_html/docs</url>
+		</site>
+	</distributionManagement>
+</project>

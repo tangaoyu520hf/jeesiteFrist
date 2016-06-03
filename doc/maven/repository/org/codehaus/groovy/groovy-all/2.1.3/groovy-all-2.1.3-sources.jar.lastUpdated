@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 19:05:07 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1453633507834
+http\://download.java.net/maven/2/.lastUpdated=1453633470641
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453633469595
+http\://repo.spring.io/release/.lastUpdated=1453633471419
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.codehaus.groovy\:groovy-all\:jar\:sources\:2.1.3 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: org/codehaus/groovy/groovy-all/2.1.3/groovy-all-2.1.3-sources.jar from oschina-repos failed

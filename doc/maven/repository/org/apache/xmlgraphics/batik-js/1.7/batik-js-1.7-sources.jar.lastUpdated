@@ -1,0 +1,20 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 14 19:52:00 CST 2016
+http\://repo1.maven.org/maven2/.lastUpdated=1463226714890
+http\://git.oschina.net/thinkgem/repos/raw/master/.lastUpdated=1463226718606
+http\://repo.maven.apache.org/maven2/.lastUpdated=1463226714332
+http\://repo.spring.io/release/.lastUpdated=1463226713900
+http\://download.java.net/maven/2/.lastUpdated=1463226713368
+http\://repo.maven.apache.org/maven2/.error=
+http\://download.java.net/maven/2/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.lastUpdated=1463226716309
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.xmlgraphics\:batik-js\:jar\:sources\:1.7 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/apache/xmlgraphics/batik-js/1.7/batik-js-1.7-sources.jar. Error code 500, Server Error
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226712420
+https\://raw.github.com/thinkgem/repository/master/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.error=
+https\://app.camunda.com/nexus/content/groups/public/.lastUpdated=1463226718481
+http\://git.oschina.net/thinkgem/repos/raw/master/.error=
+http\://repo.spring.io/release/.error=
+https\://app.camunda.com/nexus/content/groups/public/.error=
+http\://repo1.maven.org/maven2/.error=
+https\://raw.github.com/thinkgem/repository/master/.lastUpdated=1463226720598

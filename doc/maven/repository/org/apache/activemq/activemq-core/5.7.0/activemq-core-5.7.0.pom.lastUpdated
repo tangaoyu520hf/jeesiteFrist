@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Fri Jun 03 20:17:04 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1464956224311
+http\://download.java.net/maven/2/.lastUpdated=1464956222886
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1464956222262
+http\://repo.spring.io/release/.lastUpdated=1464956223435
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.activemq\:activemq-core\:pom\:5.7.0 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: connect timed out

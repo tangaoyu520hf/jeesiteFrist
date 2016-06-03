@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 20:25:39 CST 2016
+jedis-2.5.1.pom>oschina-repos=
+jedis-2.5.1.jar>oschina-repos=
+jedis-2.5.1.jar>=
+jedis-2.5.1-sources.jar>oschina-repos=

@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Fri Jun 03 15:37:12 GMT+08:00 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1464939432062
+http\://download.java.net/maven/2/.lastUpdated=1464939256019
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1464939254881
+http\://repo.spring.io/release/.lastUpdated=1464939257944
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.activemq\:activemq-all\:jar\:5.12.1 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/apache/activemq/activemq-all/5.12.1/activemq-all-5.12.1.jar. Error code 502, Bad Gateway

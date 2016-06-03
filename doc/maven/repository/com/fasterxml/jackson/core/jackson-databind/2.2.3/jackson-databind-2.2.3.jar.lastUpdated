@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 18:06:27 CST 2016
+http\://download.java.net/maven/2/.lastUpdated=1453629987898
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453629984180
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact com.fasterxml.jackson.core\:jackson-databind\:jar\:2.2.3 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: com/fasterxml/jackson/core/jackson-databind/2.2.3/jackson-databind-2.2.3.jar from oschina-repos failed

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+http://bleu.west.spy.net/~dustin/m2repo/spy/memcached/2.4.2/memcached-2.4.2.pom
+
+Copyright (c) 2006-2009  Dustin Sallings <dustin@spy.net>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.google.code.maven-play-plugin.spy</groupId>
+    <artifactId>memcached</artifactId>
+    <version>2.4.2</version>
+
+    <name>Java client for Memcached</name>
+    <description>A simple, asynchronous, single-threaded Memcached client written in java.</description>
+    <url>http://code.google.com/p/spymemcached</url>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>http://www.opensource.org/licenses/MIT http://www.gnu.org/licenses/lgpl.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/dustin/java-memcached-client.git</connection>
+        <url>https://github.com/dustin/java-memcached-client</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>dsallings</id>
+            <name>Dustin Sallings</name>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+
+        <developer>
+            <id>ericlambert</id>
+            <name>Eric D. Lambert</name>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+
+        <developer>
+            <id>mingenthron</id>
+            <name>Matt Ingenthron</name>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+    </developers>
+
+</project>

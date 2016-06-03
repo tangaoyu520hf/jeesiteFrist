@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 20:25:39 CST 2016
+cas-client-core-3.2.1.jar>=
+cas-client-core-3.2.1.pom>oschina-repos=
+cas-client-core-3.2.1-sources.jar>oschina-repos=
+cas-client-core-3.2.1.jar>oschina-repos=

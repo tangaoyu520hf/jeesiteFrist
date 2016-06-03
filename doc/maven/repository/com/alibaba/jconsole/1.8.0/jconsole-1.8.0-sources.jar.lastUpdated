@@ -1,0 +1,20 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 14 19:49:51 CST 2016
+http\://repo1.maven.org/maven2/.lastUpdated=1463226580107
+http\://git.oschina.net/thinkgem/repos/raw/master/.lastUpdated=1463226588038
+http\://repo.maven.apache.org/maven2/.lastUpdated=1463226578961
+http\://repo.spring.io/release/.lastUpdated=1463226577697
+http\://download.java.net/maven/2/.lastUpdated=1463226577425
+http\://repo.maven.apache.org/maven2/.error=
+http\://download.java.net/maven/2/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.lastUpdated=1463226583732
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact com.alibaba\:jconsole\:jar\:sources\:1.8.0 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Connection refused\: connect
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226576686
+https\://raw.github.com/thinkgem/repository/master/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.error=
+https\://app.camunda.com/nexus/content/groups/public/.lastUpdated=1463226587906
+http\://git.oschina.net/thinkgem/repos/raw/master/.error=
+http\://repo.spring.io/release/.error=
+https\://app.camunda.com/nexus/content/groups/public/.error=
+http\://repo1.maven.org/maven2/.error=
+https\://raw.github.com/thinkgem/repository/master/.lastUpdated=1463226591042

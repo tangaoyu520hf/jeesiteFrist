@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu Jan 21 21:46:30 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1453383990183
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453383987832
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.codehaus.plexus\:plexus-archiver\:jar\:1.0-alpha-7 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: org/codehaus/plexus/plexus-archiver/1.0-alpha-7/plexus-archiver-1.0-alpha-7.jar from oschina-repos failed

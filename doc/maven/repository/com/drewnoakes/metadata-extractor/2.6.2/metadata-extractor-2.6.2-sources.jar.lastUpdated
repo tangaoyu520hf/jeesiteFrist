@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 20:20:26 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1453638026494
+http\://download.java.net/maven/2/.lastUpdated=1453638023913
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453638023154
+http\://repo.spring.io/release/.lastUpdated=1453638024707
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact com.drewnoakes\:metadata-extractor\:jar\:sources\:2.6.2 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: com/drewnoakes/metadata-extractor/2.6.2/metadata-extractor-2.6.2-sources.jar from oschina-repos failed

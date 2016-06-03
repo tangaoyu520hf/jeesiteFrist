@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 20:25:39 CST 2016
+org.restlet.ext.jackson-2.1.4.pom>oschina-repos=
+org.restlet.ext.jackson-2.1.4.jar>oschina-repos=
+org.restlet.ext.jackson-2.1.4-sources.jar>oschina-repos=
+org.restlet.ext.jackson-2.1.4.jar>=

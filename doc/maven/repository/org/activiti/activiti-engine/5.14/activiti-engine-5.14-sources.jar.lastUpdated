@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 14 19:50:18 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1463226618415
+http\://download.java.net/maven/2/.lastUpdated=1463226613826
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226613132
+http\://repo.spring.io/release/.lastUpdated=1463226614125
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.activiti\:activiti-engine\:jar\:sources\:5.14 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Connection refused\: connect

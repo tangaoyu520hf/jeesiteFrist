@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Fri Jun 03 20:17:12 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1464956232565
+http\://download.java.net/maven/2/.lastUpdated=1464956231373
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1464956230613
+http\://repo.spring.io/release/.lastUpdated=1464956231925
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.activemq\:kahadb\:pom\:5.7.0 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/apache/activemq/kahadb/5.7.0/kahadb-5.7.0.pom. Error code 502, Bad Gateway

@@ -1,0 +1,20 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 14 19:50:58 CST 2016
+http\://repo1.maven.org/maven2/.lastUpdated=1463226648593
+http\://git.oschina.net/thinkgem/repos/raw/master/.lastUpdated=1463226655664
+http\://repo.maven.apache.org/maven2/.lastUpdated=1463226647156
+http\://repo.spring.io/release/.lastUpdated=1463226646869
+http\://download.java.net/maven/2/.lastUpdated=1463226646316
+http\://repo.maven.apache.org/maven2/.error=
+http\://download.java.net/maven/2/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.lastUpdated=1463226651200
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.restlet.jee\:org.restlet\:jar\:sources\:2.0.15 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/restlet/jee/org.restlet/2.0.15/org.restlet-2.0.15-sources.jar. Error code 500, Server Error
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226644720
+https\://raw.github.com/thinkgem/repository/master/.error=
+https\://maven.alfresco.com/nexus/content/groups/public/.error=
+https\://app.camunda.com/nexus/content/groups/public/.lastUpdated=1463226655521
+http\://git.oschina.net/thinkgem/repos/raw/master/.error=
+http\://repo.spring.io/release/.error=
+https\://app.camunda.com/nexus/content/groups/public/.error=
+http\://repo1.maven.org/maven2/.error=
+https\://raw.github.com/thinkgem/repository/master/.lastUpdated=1463226658259

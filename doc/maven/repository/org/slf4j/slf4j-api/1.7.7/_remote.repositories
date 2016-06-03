@@ -1,0 +1,6 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 20:25:39 CST 2016
+slf4j-api-1.7.7.jar>=
+slf4j-api-1.7.7-sources.jar>oschina-repos=
+slf4j-api-1.7.7.pom>oschina-repos=
+slf4j-api-1.7.7.jar>oschina-repos=

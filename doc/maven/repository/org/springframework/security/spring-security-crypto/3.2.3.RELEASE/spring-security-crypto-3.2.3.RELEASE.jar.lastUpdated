@@ -1,0 +1,22 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sat May 28 13:04:11 CST 2016
+@default-http\://repo.maven.apache.org/maven2/.lastUpdated=1464411851694
+http\://maven.restlet.org/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to maven-restlet (http\://maven.restlet.org)\: The operation was cancelled.
+@default-http\://download.java.net/maven/2/.lastUpdated=1464411851675
+http\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to central-repos (http\://repo.maven.apache.org/maven2)\: The operation was cancelled.
+@default-http\://git.oschina.net/thinkgem/repos/raw/master/.lastUpdated=1464411851724
+http\://download.java.net/maven/2/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to java-repos (http\://download.java.net/maven/2/)\: The operation was cancelled.
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: The operation was cancelled.
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1464411851655
+https\://raw.github.com/thinkgem/repository/master/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to thinkgem-repos2 (https\://raw.github.com/thinkgem/repository/master)\: The operation was cancelled.
+@default-https\://app.camunda.com/nexus/content/groups/public/.lastUpdated=1464411851717
+@default-http\://repo.spring.io/release/.lastUpdated=1464411851684
+https\://maven.alfresco.com/nexus/content/groups/public/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to activiti-repos (https\://maven.alfresco.com/nexus/content/groups/public)\: The operation was cancelled.
+@default-https\://raw.github.com/thinkgem/repository/master/.lastUpdated=1464411851731
+@default-http\://repo1.maven.org/maven2/.lastUpdated=1464411851702
+http\://git.oschina.net/thinkgem/repos/raw/master/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to thinkgem-repos (http\://git.oschina.net/thinkgem/repos/raw/master)\: The operation was cancelled.
+@default-http\://maven.restlet.org/.lastUpdated=1464411851739
+http\://repo.spring.io/release/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to springsource-repos (http\://repo.spring.io/release/)\: The operation was cancelled.
+https\://app.camunda.com/nexus/content/groups/public/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to activiti-repos2 (https\://app.camunda.com/nexus/content/groups/public)\: The operation was cancelled.
+http\://repo1.maven.org/maven2/.error=Could not transfer artifact org.springframework.security\:spring-security-crypto\:jar\:3.2.3.RELEASE from/to central-repos2 (http\://repo1.maven.org/maven2/)\: The operation was cancelled.
+@default-https\://maven.alfresco.com/nexus/content/groups/public/.lastUpdated=1464411851710

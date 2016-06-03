@@ -1,0 +1,5 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 18:14:28 CST 2016
+http\://download.java.net/maven/2/.lastUpdated=1453630468886
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453630422663
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.xmlbeans\:xmlbeans\:jar\:2.3.0 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar from oschina-repos failed

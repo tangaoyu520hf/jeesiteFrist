@@ -1,0 +1,9 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Jan 24 18:01:11 CST 2016
+http\://repo.maven.apache.org/maven2/.lastUpdated=1453629671181
+http\://download.java.net/maven/2/.lastUpdated=1453629651179
+@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453629650289
+http\://repo.spring.io/release/.lastUpdated=1453629651959
+http\://download.java.net/maven/2/.error=
+http\://repo.spring.io/release/.error=
+http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.xmlgraphics\:fop\:jar\:0.94 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: org/apache/xmlgraphics/fop/0.94/fop-0.94.jar from oschina-repos failed
