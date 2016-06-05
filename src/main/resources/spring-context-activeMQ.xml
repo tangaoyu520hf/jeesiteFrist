@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+	 http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core-5.7.0.xsd"
+		
+	default-lazy-init="true">
+	
+	<!-- 加载配置属性文件 -->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:jeesite.properties" />
+
+	<bean id="connectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+		destroy-method="stop">
+		<property name="connectionFactory" ref="amqConnectionFactory" />
+	</bean>
+	
+		
+		<!-- ActiveMQ 连接工厂 -->
+    <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
+    <!-- 如果连接网络：tcp://ip:61616；未连接网络：tcp://localhost:61616 以及用户名，密码-->
+    <amq:connectionFactory id="amqConnectionFactory" brokerURL="${brokerURL}" sendAcksAsync="true" />
+ 	
+<!--  	<bean id="amqConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">   
+        <property name="brokerURL" value="tcp://127.0.0.1:61616" />   
+        <property name="brokerURL" value="vm://normandy.notify" />   
+        <property name="useAsyncSend" value="true" />   
+    </bean>  -->
+    <!-- Spring JmsTemplate 的消息生产者 start-->
+
+    <!-- 定义JmsTemplate的Queue类型 -->
+    <bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
+    	
+        <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->  
+        <constructor-arg ref="connectionFactory" />
+        <!-- 创建事务session -->
+        <property name="sessionTransacted" value="true" />  
+		<!-- 消息应答方式   
+	        Session.AUTO_ACKNOWLEDGE  消息自动签收   
+	        Session.CLIENT_ACKNOWLEDGE  客户端调用acknowledge方法手动签收   
+	        Session.DUPS_OK_ACKNOWLEDGE 不必必须签收，消息可能会重复发送   
+	        static final int AUTO_ACKNOWLEDGE = 1;
+		    static final int CLIENT_ACKNOWLEDGE = 2;
+		    static final int DUPS_OK_ACKNOWLEDGE = 3;
+		    static final int SESSION_TRANSACTED = 0;
+        -->   
+        <!-- 如果设置事务提交应答模式的话 则必须在事务session模式下 -->
+        <property name="sessionAcknowledgeMode" value="0" />   
+        <!-- 非pub/sub模型（发布/订阅），即队列模式 -->
+        <property name="pubSubDomain" value="false" />
+        <property name="defaultDestinationName" value="HelloWorldQueue"></property>
+    </bean>
+
+    <!-- 定义JmsTemplate的Topic类型 -->
+    <bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+         <!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->  
+        <constructor-arg ref="connectionFactory" />
+        <!-- pub/sub模型（发布/订阅） -->
+        <property name="pubSubDomain" value="true" />
+        <property name="defaultDestinationName" value="HelloWorldTopic"></property>
+    </bean>
+    
+    <!-- 定义Queue监听器 -->
+  <!--   <jms:listener-container  destination-type="queue" container-type="default"  connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="HelloWorldQueue" ref="queueReceiver1"/>
+    </jms:listener-container> -->
+    <!-- 定义消息队列 -->  
+    <bean id="HelloWorldQueue" class="org.apache.activemq.command.ActiveMQQueue">  
+        <constructor-arg value="HelloWorldQueue" />  
+    </bean>
+    <!-- 消息监听容器 -->  
+    <bean id="listenerContainer"    
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
+        <property name="connectionFactory" ref="connectionFactory" />    
+        <property name="destination" ref="HelloWorldQueue" />    
+        <property name="messageListener" ref="queueReceiver1" />
+         <property name="SessionTransacted" value="true" />
+    </bean> 
+
+    <!-- 定义Topic监听器 -->
+<!--     <jms:listener-container destination-type="topic" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="HelloWorldTopic" ref="topicReceiver1"/>
+        <jms:listener destination="HelloWorldTopic" ref="topicReceiver2"/>
+    </jms:listener-container> -->
+
+</beans>

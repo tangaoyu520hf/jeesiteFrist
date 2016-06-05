@@ -31,5 +31,9 @@ public class Student {
 		return this;
 	} 
 	
+	public void init(){
+		System.out.println("出书画了");
+	}
+	
 	
 }
