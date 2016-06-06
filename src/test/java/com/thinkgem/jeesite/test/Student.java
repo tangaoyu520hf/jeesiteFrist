@@ -3,6 +3,7 @@ package com.thinkgem.jeesite.test;
 public class Student {
 	public Student(){
 		System.out.println(this.getClass());
+		System.out.println(this.getClass());
 	}
 	private String name;
 	public String getName() {
