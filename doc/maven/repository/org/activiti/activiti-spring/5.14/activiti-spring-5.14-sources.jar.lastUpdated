@@ -1,9 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Sat May 14 19:50:28 CST 2016
-http\://repo.maven.apache.org/maven2/.lastUpdated=1463226628277
-http\://download.java.net/maven/2/.lastUpdated=1463226626725
-@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226625298
-http\://repo.spring.io/release/.lastUpdated=1463226627276
-http\://download.java.net/maven/2/.error=
-http\://repo.spring.io/release/.error=
-http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.activiti\:activiti-spring\:jar\:sources\:5.14 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/activiti/activiti-spring/5.14/activiti-spring-5.14-sources.jar. Error code 500, Server Error

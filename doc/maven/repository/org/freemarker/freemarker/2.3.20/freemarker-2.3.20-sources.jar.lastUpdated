@@ -1,9 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Sun Jan 24 19:46:26 CST 2016
-http\://repo.maven.apache.org/maven2/.lastUpdated=1453635986347
-http\://download.java.net/maven/2/.lastUpdated=1453635977217
-@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1453635975976
-http\://repo.spring.io/release/.lastUpdated=1453635977986
-http\://download.java.net/maven/2/.error=
-http\://repo.spring.io/release/.error=
-http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.freemarker\:freemarker\:jar\:sources\:2.3.20 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: GET request of\: org/freemarker/freemarker/2.3.20/freemarker-2.3.20-sources.jar from oschina-repos failed

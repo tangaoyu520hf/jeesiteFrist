@@ -1,7 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Sat May 14 19:49:17 CST 2016
-http\://download.java.net/maven/2/.lastUpdated=1463226554826
-@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1463226553374
-http\://repo.spring.io/release/.lastUpdated=1463226557701
-http\://download.java.net/maven/2/.error=
-http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.springframework\:spring-expression\:jar\:sources\:3.2.4.RELEASE from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/springframework/spring-expression/3.2.4.RELEASE/spring-expression-3.2.4.RELEASE-sources.jar. Error code 500, Server Error

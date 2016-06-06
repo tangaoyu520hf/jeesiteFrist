@@ -63,6 +63,7 @@ import com.thinkgem.jeesite.common.annotation.AdviceTest;
 import com.thinkgem.jeesite.common.annotation.AopTestIn;
 import com.thinkgem.jeesite.common.annotation.CglipProxy;
 import com.thinkgem.jeesite.common.annotation.MybeanProcess;
+import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.service.BaseService;
 import com.thinkgem.jeesite.modules.sys.dao.UserDao;
 import com.thinkgem.jeesite.modules.sys.entity.User;
@@ -74,6 +75,8 @@ public class Test extends Test2 implements InvocationHandler{
 		/*boolean assignableFrom = Connection.class.isAssignableFrom(TopicConnection.class);
 		System.out.println(assignableFrom);*/
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml");
+		CrudDao bean2 = applicationContext.getBean(CrudDao.class);
+		System.out.println(bean2);
 		DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) applicationContext.getBeanFactory();//获取工厂,判断名称是否存在
         if(!beanFactory.containsBean("studentName")){
             BeanDefinitionBuilder beanDefinitionBuilder= BeanDefinitionBuilder.rootBeanDefinition(Student.class);

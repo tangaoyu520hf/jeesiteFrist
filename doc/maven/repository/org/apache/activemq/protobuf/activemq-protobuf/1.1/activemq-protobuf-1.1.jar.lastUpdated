@@ -1,9 +1,0 @@
-#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
-#Fri Jun 03 20:17:47 CST 2016
-http\://repo.maven.apache.org/maven2/.lastUpdated=1464956267414
-http\://download.java.net/maven/2/.lastUpdated=1464956260250
-@default-http\://maven.oschina.net/content/groups/public/.lastUpdated=1464956257749
-http\://repo.spring.io/release/.lastUpdated=1464956261890
-http\://download.java.net/maven/2/.error=
-http\://repo.spring.io/release/.error=
-http\://maven.oschina.net/content/groups/public/.error=Could not transfer artifact org.apache.activemq.protobuf\:activemq-protobuf\:jar\:1.1 from/to oschina-repos (http\://maven.oschina.net/content/groups/public)\: Failed to transfer http\://maven.oschina.net/content/groups/public/org/apache/activemq/protobuf/activemq-protobuf/1.1/activemq-protobuf-1.1.jar. Error code 502, Bad Gateway
