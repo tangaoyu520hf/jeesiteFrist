@@ -253,9 +253,10 @@ public class Test extends Test2 implements InvocationHandler{
         }*/
 	}
 	@org.junit.Test
-	public void test(){
+	public void test() throws InterruptedException{
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml","classpath:spring-context-activeMQ.xml");
 		JmsTemplate jmsTemplate  = (JmsTemplate) applicationContext.getBean("jmsTopicTemplate");
+		System.out.println(1234567);
 		jmsTemplate.send(new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
@@ -263,12 +264,15 @@ public class Test extends Test2 implements InvocationHandler{
 				return createTextMessage;
 			}
 		});
+		Thread.sleep(5000);
+		System.out.println(123456);
 	}
 	
 	@org.junit.Test
 	public void test2(){
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml","classpath:spring-context-activeMQ.xml");
 		JmsTemplate jmsTemplate  = (JmsTemplate) applicationContext.getBean("jmsQueueTemplate");
+		System.out.println(123456);
 		for(int i=0;i<10;i++){
 			jmsTemplate.send(new MessageCreator() {
 				@Override
@@ -284,6 +288,7 @@ public class Test extends Test2 implements InvocationHandler{
 		}
 		try {
 			Thread.sleep(8000);
+			System.out.println(123456);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
