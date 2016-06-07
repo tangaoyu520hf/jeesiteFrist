@@ -11,19 +11,20 @@ import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProx
 import org.springframework.aop.framework.AopContext;
 import org.springframework.aop.target.HotSwappableTargetSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Lazy(false)
 public class AopTest {
 	
 	public AopTest(){
 		System.out.println(123);
 	}
 	
-	
-	@Transactional(readOnly=false)
 	public Object update(String str){
 		/*AnnotationAwareAspectJAutoProxyCreator*/
 		System.out.println(str);
@@ -34,5 +35,16 @@ public class AopTest {
 			System.out.println(method.getName());
 		}
 		return currentProxy;*/
+	}
+	@Scheduled(cron="0/2 * * * * ?")
+	public void test(){
+		try {
+			Thread.sleep(5000);
+			System.out.println("神一样的男人");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(123456);
 	}
 }

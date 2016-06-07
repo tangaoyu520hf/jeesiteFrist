@@ -13,6 +13,8 @@ import org.activiti.engine.identity.Group;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +46,7 @@ import com.thinkgem.jeesite.modules.sys.utils.UserUtils;
  */
 @Service
 @Transactional(readOnly = true)
+@Lazy(false)
 public class SystemService extends BaseService implements InitializingBean {
 	
 	public static final String HASH_ALGORITHM = "SHA-1";
@@ -78,7 +81,7 @@ public class SystemService extends BaseService implements InitializingBean {
 	public User getUser(String id) {
 		return UserUtils.get(id);
 	}
-
+	
 	/**
 	 * 根据登录名获取用户
 	 * @param loginName

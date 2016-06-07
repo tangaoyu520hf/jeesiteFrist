@@ -1,6 +1,7 @@
 package com.thinkgem.jeesite.test;
 
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Random;
@@ -17,6 +18,7 @@ import javax.jms.Session;
 import javax.jms.TemporaryQueue;
 import javax.jms.TextMessage;
 import javax.jms.TopicConnection;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.validation.groups.Default;
 
@@ -48,6 +50,10 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.AsyncAnnotationBeanPostProcessor;
 import org.springframework.scheduling.annotation.ProxyAsyncConfiguration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
@@ -75,8 +81,13 @@ public class Test extends Test2 implements InvocationHandler{
 		/*boolean assignableFrom = Connection.class.isAssignableFrom(TopicConnection.class);
 		System.out.println(assignableFrom);*/
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml");
-		CrudDao bean2 = applicationContext.getBean(CrudDao.class);
-		System.out.println(bean2);
+		Object bean = applicationContext.getBean("org.springframework.context.annotation.internalAsyncAnnotationProcessor");
+		System.out.println(bean);
+/*		JavaMailSenderImpl javaMailSenderImpl = new JavaMailSenderImpl();
+		MimeMessage createMimeMessage = javaMailSenderImpl.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(createMimeMessage);*/
+		/*helper.addAttachment(attachmentFilename, inputStreamSource);*/
+		/*
 		DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) applicationContext.getBeanFactory();//获取工厂,判断名称是否存在
         if(!beanFactory.containsBean("studentName")){
             BeanDefinitionBuilder beanDefinitionBuilder= BeanDefinitionBuilder.rootBeanDefinition(Student.class);
@@ -92,7 +103,7 @@ public class Test extends Test2 implements InvocationHandler{
 		beanFactory.destroyBean("studentName");
         Object bean1 = applicationContext.getBean("studentName");
 		System.out.println(bean);
-		beanFactory.removeBeanDefinition("studentName");
+		beanFactory.removeBeanDefinition("studentName");*/
 
 /*		UserDao bean = applicationContext.getBean(UserDao.class);
 		bean.updateUserInfo(new User());*/
