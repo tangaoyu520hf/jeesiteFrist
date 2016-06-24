@@ -74,13 +74,13 @@
         <constructor-arg value="HelloWorldQueue" />  
     </bean>
     <!-- 消息监听容器 -->  
-    <bean id="listenerContainer"    
+<!--     <bean id="listenerContainer"    
         class="org.springframework.jms.listener.DefaultMessageListenerContainer">    
         <property name="connectionFactory" ref="connectionFactory" />    
         <property name="destination" ref="HelloWorldQueue" />    
         <property name="messageListener" ref="queueReceiver1" />
          <property name="SessionTransacted" value="true" />
-    </bean> 
+    </bean>  -->
 
     <!-- 定义Topic监听器 -->
 <!--     <jms:listener-container destination-type="topic" container-type="default" connection-factory="connectionFactory" acknowledge="auto">

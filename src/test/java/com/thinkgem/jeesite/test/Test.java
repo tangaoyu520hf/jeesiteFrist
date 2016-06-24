@@ -2,9 +2,22 @@ package com.thinkgem.jeesite.test;
 
 
 import java.io.File;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.SynchronousQueue;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -70,19 +83,68 @@ import com.thinkgem.jeesite.common.annotation.AopTestIn;
 import com.thinkgem.jeesite.common.annotation.CglipProxy;
 import com.thinkgem.jeesite.common.annotation.MybeanProcess;
 import com.thinkgem.jeesite.common.persistence.CrudDao;
+import com.thinkgem.jeesite.common.persistence.DataEntity;
 import com.thinkgem.jeesite.common.service.BaseService;
+import com.thinkgem.jeesite.modules.cms.entity.Article;
 import com.thinkgem.jeesite.modules.sys.dao.UserDao;
 import com.thinkgem.jeesite.modules.sys.entity.User;
+import com.thinkgem.jeesite.test.Test.B;
 
 public class Test extends Test2 implements InvocationHandler{
+	private static String GBK="";
+	
+	public Test(char first, char second) {
+		super(first, second);
+		// TODO Auto-generated constructor stub
+	}
 	private static int i = 0;  
 	private static final String BROKEURL = ActiveMQConnection.DEFAULT_BROKER_URL;
+	static CopyOnWriteArrayList<String> arrayList = new CopyOnWriteArrayList<String>();
+	
+	@org.junit.Test
+	public void test6(){
+		/*System.out.println(arrayList.size());
+		System.out.println(arrayList.size());*/
+	}
+	
 	public static void main(String[] args) {
+		String str = new StringBuilder().append("dwa").append("dddd").toString();
+		System.out.println(str.intern()==str);
+		String str1 = new StringBuilder().append("java").append("va").toString();
+		String str2 = "javava";
+		System.out.println(str1.intern()==str1);
+		System.out.println(str1.intern()==str2);
 		/*boolean assignableFrom = Connection.class.isAssignableFrom(TopicConnection.class);
 		System.out.println(assignableFrom);*/
-		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml");
-		Object bean = applicationContext.getBean("org.springframework.context.annotation.internalAsyncAnnotationProcessor");
-		System.out.println(bean);
+		/*FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-mvc.xml");
+		System.out.println(applicationContext);*/
+		/*Object bean = applicationContext.getBean("org.springframework.context.annotation.internalAsyncAnnotationProcessor");
+		BeanFactory parentBeanFactory = applicationContext.getParentBeanFactory();
+		System.out.println(bean);*/
+/*		CyclicBarrier barrier = new CyclicBarrier(2,new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("成功执行");
+			}
+		});
+		try {
+			barrier.await();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BrokenBarrierException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+			
+			
+		
+		arrayList.add("123456");
+		System.out.println(Test.arrayList);
+		/*ExecutorService;FutureTask;CountDownLatch<E>;Executors;Semaphore;CyclicBarrier*/
+		
+		
 /*		JavaMailSenderImpl javaMailSenderImpl = new JavaMailSenderImpl();
 		MimeMessage createMimeMessage = javaMailSenderImpl.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(createMimeMessage);*/
@@ -263,8 +325,10 @@ public class Test extends Test2 implements InvocationHandler{
             e.printStackTrace();
         }*/
 	}
+	
+	
 	@org.junit.Test
-	public void test() throws InterruptedException{
+	public void test(List<? super B> list) throws InterruptedException{
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml","classpath:spring-context-activeMQ.xml");
 		JmsTemplate jmsTemplate  = (JmsTemplate) applicationContext.getBean("jmsTopicTemplate");
 		System.out.println(1234567);
@@ -277,10 +341,40 @@ public class Test extends Test2 implements InvocationHandler{
 		});
 		Thread.sleep(5000);
 		System.out.println(123456);
+		Map<?,Object> map = new HashedMap();
+		map.put(null, "");
+		
+	}
+	
+	class A{
+		public final void name() {
+			System.out.println(123);
+		}
+		
+	}
+	
+	class B extends A{
+		
+		
 	}
 	
 	@org.junit.Test
 	public void test2(){
+		List<A> list = new ArrayList<A>();
+		list.add(new A());
+		
+		List<? super B> list1 = new ArrayList<B>();
+		 
+		new B().name();
+		list1.get(0);
+		
+		try {
+			test(list);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml","classpath:spring-context-activeMQ.xml");
 		JmsTemplate jmsTemplate  = (JmsTemplate) applicationContext.getBean("jmsQueueTemplate");
 		System.out.println(123456);
@@ -381,7 +475,6 @@ public class Test extends Test2 implements InvocationHandler{
 	class Card
 	{
 	}
-	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		

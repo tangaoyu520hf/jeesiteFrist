@@ -391,6 +391,12 @@
             <version>${shiro.version}</version>
         </dependency>
         <!-- SECURITY end -->
+<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+<dependency>
+    <groupId>commons-httpclient</groupId>
+    <artifactId>commons-httpclient</artifactId>
+    <version>3.1</version>
+</dependency>
 
         <!-- Activiti -->
         <dependency>
@@ -398,6 +404,13 @@
             <artifactId>activiti-engine</artifactId>
             <version>${activiti.version}</version>
         </dependency>
+		<!-- http://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.1</version>
+		</dependency>        
+        
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring</artifactId>

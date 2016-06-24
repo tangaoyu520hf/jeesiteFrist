@@ -22,6 +22,17 @@ import java.sql.Time;
 import java.sql.Timestamp;    
 import java.util.ArrayList;    
 import java.util.Calendar;    
+
+import org.aopalliance.aop.Advice;
+import org.apache.ibatis.plugin.Invocation;
+import org.springframework.aop.Advisor;
+import org.springframework.aop.framework.ProxyFactory;
+import org.springframework.aop.framework.ProxyFactoryBean;
+import org.springframework.cglib.proxy.InvocationHandler;
+import org.springframework.remoting.caucho.HessianProxyFactoryBean;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.caucho.hessian.io.HessianInputFactory;
     
 /**  
  *   
@@ -49,7 +60,7 @@ public class LoggableStatement implements PreparedStatement {
         // use connection to make a prepared statement    
         wrappedStatement = connection.prepareStatement(sql);    
         sqlTemplate = sql;    
-        parameterValues = new ArrayList();    
+        parameterValues = new ArrayList();
     }    
     
     private void saveQueryParamValue(int position, Object obj) {    

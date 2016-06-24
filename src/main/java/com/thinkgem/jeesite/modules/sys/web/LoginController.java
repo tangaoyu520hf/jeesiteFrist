@@ -3,6 +3,11 @@
  */
 package com.thinkgem.jeesite.modules.sys.web;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,13 +59,11 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.GET)
 	public String login( HttpServletRequest request, HttpServletResponse response, Model model,User user) {
 		Principal principal = UserUtils.getPrincipal();
-
 //		// 默认页签模式
 //		String tabmode = CookieUtils.getCookie(request, "tabmode");
 //		if (tabmode == null){
 //			CookieUtils.setCookie(response, "tabmode", "1");
 //		}
-		
 		if (logger.isDebugEnabled()){
 			logger.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
 		}
@@ -89,7 +92,6 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.POST)
 	public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Principal principal = UserUtils.getPrincipal();
-		Test.Employee employee = new Test().new Employee();
 		// 如果已经登录，则跳转到管理首页
 		if(principal != null){
 			return "redirect:" + adminPath;
