@@ -45,6 +45,7 @@ public class GenTableService extends BaseService {
 	
 	public Page<GenTable> find(Page<GenTable> page, GenTable genTable) {
 		genTable.setPage(page);
+		genTableDao.findListTest("神话",genTable);
 		page.setList(genTableDao.findList(genTable));
 		return page;
 	}

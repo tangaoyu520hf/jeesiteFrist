@@ -19,6 +19,7 @@ import com.thinkgem.jeesite.common.persistence.Page;
 import com.thinkgem.jeesite.common.utils.Reflections;
 import com.thinkgem.jeesite.common.utils.StringUtils;
 
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -51,7 +52,7 @@ public class PaginationInterceptor extends BaseInterceptor {
             }
 
             //如果设置了分页对象，则进行分页
-            if (page != null && page.getPageSize() != -1) {
+            if (page != null && page.getPageSize() != -1) { 
 
             	if (StringUtils.isBlank(boundSql.getSql())){
                     return null;
@@ -78,10 +79,15 @@ public class PaginationInterceptor extends BaseInterceptor {
 
                 invocation.getArgs()[0] = newMs;
             }
+            Object result = invocation.proceed();
+            if(page != null && page.getPageSize() != -1 && result instanceof List){
+            	page.setList((List<Object>) result);
+            	page.initialize();
+            }
 //        }
-        return invocation.proceed();
+        return result;
     }
-
+    
 
     @Override
     public Object plugin(Object target) {

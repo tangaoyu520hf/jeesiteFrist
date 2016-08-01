@@ -4,31 +4,6 @@
 <head>
 <title>修改密码</title>
 <meta name="decorator" content="default" />
-<script type="text/javascript">
-		$(document).ready(function() {
-			$("#oldPassword").focus();
-			$("#inputForm").validate({
-				rules: {
-				},
-				messages: {
-					confirmNewPassword: {equalTo: "输入与上面相同的密码"}
-				},
-				submitHandler: function(form){
-					loading('正在提交，请稍等...');
-					form.submit();
-				},
-				errorContainer: "#messageBox",
-				errorPlacement: function(error, element) {
-					$("#messageBox").text("输入有误，请先更正。");
-					if (element.is(":checkbox")||element.is(":radio")||element.parent().is(".input-append")){
-						error.appendTo(element.parent().parent());
-					} else {
-						error.insertAfter(element);
-					}
-				}
-			});
-		});
-	</script>
 </head>
 <body>
 	<ul class="nav nav-tabs">
@@ -71,5 +46,103 @@
 				value="保 存" />
 		</div>
 	</form:form>
+	
+	<div style="margin-left:20px">
+    <table id="dataGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+    	$.jgrid.defaults.width = $(window).width();
+    /* 	$.jgrid.defaults.styleUI = 'Bootstrap'; */
+		$("#oldPassword").focus();
+		$("#inputForm").validate({
+			rules: {
+			},
+			messages: {
+				confirmNewPassword: {equalTo: "输入与上面相同的密码"}
+			},
+			submitHandler: function(form){
+				loading('正在提交，请稍等...');
+				form.submit();
+			},
+			errorContainer: "#messageBox",
+			errorPlacement: function(error, element) {
+				$("#messageBox").text("输入有误，请先更正。");
+				if (element.is(":checkbox")||element.is(":radio")||element.parent().is(".input-append")){
+					error.appendTo(element.parent().parent());
+				} else {
+					error.insertAfter(element);
+				}
+			}
+		});
+ 		var data = new DataGrid({
+            url: '${ctx}/sys/user/testGrid',
+            colModel: [
+                { label: 'OrderID', name: 'id', key: true },
+                { label: 'Customer ID', name: 'createDate' },
+                { label: 'Order Date', name: 'OrderDate' },
+                { label: 'Freight', name: 'Freight' },
+                { label:'Ship Name', name: 'ShipName' }
+            ],
+			viewrecords: true,
+            rowNum: 1,
+            pager: "#jqGridPager",
+			serializeGridData:function(postData){
+				postData.ids="神话";
+				return postData;
+			},
+			loadComplete:function(){
+		 		var rowIdsData =  data.getDataIDs();
+		 		console.log(rowIdsData);
+		 		console.log($("#dataGrid").getDataIDs()); 
+			}
+        });
+ 		console.log(data);
+/*        $("#dataGrid").jqGrid({
+            url: '${ctx}/sys/user/testGrid',
+            mtype: "post",
+            datatype: "json",
+            dataGrid:"dataGrid",
+            colModel: [
+                { label: 'OrderID', name: 'id', key: true },
+                { label: 'Customer ID', name: 'createDate' },
+                { label: 'Order Date', name: 'OrderDate' },
+                { label: 'Freight', name: 'Freight' },
+                { label:'Ship Name', name: 'ShipName' }
+            ],
+			viewrecords: true,
+            rowNum: 1,
+            pager: "#jqGridPager",
+            prmNames :{
+			 	page: "pageNo",
+			 	rows: "pageSize",
+			 	sort: "sidx",
+			 	order: "orderBy1",
+			 	search: "_search"
+			},
+			jsonReader: {
+				root: "list",
+				page: "pageNo",
+				total: "totalPage",
+				records: "count",
+ 				repeatitems: true,
+				cell: "cell",
+				id: "id",
+				userdata: "userdata",
+					subgrid: {
+					root: "rows",
+					repeatitems: true,
+					cell: "cell"
+				} 
+			},
+			serializeGridData:function(postData){
+				postData.ids="神话";
+				return postData;
+			}
+        });  */
+	});
+
+</script>
 </body>
 </html>

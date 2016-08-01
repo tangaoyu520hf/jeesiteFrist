@@ -26,6 +26,7 @@ public class Page<T> {
 	
 	private int pageNo = 1; // 当前页码
 	private int pageSize = Integer.valueOf(Global.getConfig("page.pageSize")); // 页面大小，设置为“-1”表示不进行分页（分页无效）
+	private int totalPage;//总页数
 	
 	private long count;// 总记录数，设置为“-1”表示不查询总数
 	
@@ -141,11 +142,11 @@ public class Page<T> {
 	 * 初始化参数
 	 */
 	public void initialize(){
-			
 		//1
 		this.first = 1;
 		
 		this.last = (int)(count / (this.pageSize < 1 ? 20 : this.pageSize) + first - 1);
+		
 		
 		this.startindex = (this.pageNo-1)*this.pageSize;
 		this.endindex=this.pageSize+this.startindex;
@@ -157,7 +158,7 @@ public class Page<T> {
 			this.endindex=(int) this.count;
 		}
 		
-		this.list.subList(this.startindex, this.endindex);
+		/*this.list.subList(this.startindex, this.endindex);*/
 		
 		if (this.count % this.pageSize != 0 || this.last == 0) {
 			this.last++;
@@ -197,7 +198,6 @@ public class Page<T> {
 		if (this.pageNo > this.last) {// 如果当前页大于尾页
 			this.pageNo = this.last;
 		}
-		
 	}
 	
 	/**
@@ -350,7 +350,7 @@ public class Page<T> {
 	 * @param pageSize
 	 */
 	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize <= 0 ? 10 : pageSize;// > 500 ? 500 : pageSize;
+		this.pageSize = pageSize <= 0 ? 10 : pageSize > 500 ? 500 : pageSize;
 	}
 
 	/**
@@ -375,9 +375,12 @@ public class Page<T> {
 	 * 获取页面总数
 	 * @return getLast();
 	 */
-	@JsonIgnore
 	public int getTotalPage() {
-		return getLast();
+		return this.getLast();
+	}
+	
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 
 	/**
@@ -542,6 +545,12 @@ public class Page<T> {
 	public int getMaxResults(){
 		return getPageSize();
 	}
+
+
+
+	
+	
+	
 
 //	/**
 //	 * 获取 Spring data JPA 分页对象

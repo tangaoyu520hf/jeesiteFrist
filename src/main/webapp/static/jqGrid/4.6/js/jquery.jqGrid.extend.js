@@ -3,7 +3,7 @@
  * @author ThinkGem@163.COM
  * @version 2014-8-22
  */
-var DataGrid = function(options){
+function DataGrid(options){
 	
 	var dataGrid = options.dataGrid ? options.dataGrid : $("#dataGrid");
 	var dataGridPage = options.dataGridPage ? options.dataGridPage : $("#dataGridPage");
@@ -11,7 +11,7 @@ var DataGrid = function(options){
 	
 	options = $.extend({
 		url: searchForm.attr('action'),
-		postData: searchForm.serializeArray(),
+		postData: searchForm.serializeJson(),
 		mtype: "POST", datatype: "json",
 		jsonReader: { 	// 自定义表格的JSON读取参数
 			id: options.dataId, root: "list", page: "pageNo", 
@@ -82,11 +82,11 @@ var DataGrid = function(options){
 				}
 				// 设置请求参数
 				else{
-					setParam({postData: searchForm.serializeArray()});
+					setParam({postData: searchForm.serializeJson()});
 				}
 			}else{
 				// 设置请求参数
-				setParam({postData: searchForm.serializeArray()});
+				setParam({postData: searchForm.serializeJson()});
 			}
 			
 			// 请求加载前调用方法
@@ -170,7 +170,7 @@ var DataGrid = function(options){
 		onSortCol: function (index, iCol, sortorder) {
 			if (options.inputOrderBy && options.inputOrderBy.length){
 				options.inputOrderBy.val(index + ' ' + sortorder);
-				//setParam({postData: searchForm.serializeArray()});
+				//setParam({postData: searchForm.serializeJson()});
 			}
         },
 //		ondblClickRow: function(id, rownum, colnum, event){
@@ -554,7 +554,7 @@ var DataGrid = function(options){
 		if (options.inputPageSize.val() != ''){
 			params.rowNum = options.inputPageSize.val();
 		}
-		//params.postData = searchForm.serializeArray();
+		//params.postData = searchForm.serializeJson();
 		setParam(params);
 		dataGrid.trigger('reloadGrid');
 		return self;
@@ -634,14 +634,13 @@ var DataGrid = function(options){
 	
 	// public method
 	var self = {
-		
 		/**
 		 * 直接调用jqGrid对象方法
 		 */
-		jqGrid: function(m, v){
+/*		jqGrid: function(m, v){
 			return dataGrid.jqGrid(m, v);
-		},
-		
+		},*/
+			
 		/**
 		 * 设置参数
 		 */
@@ -728,7 +727,9 @@ var DataGrid = function(options){
 		}
 	};
 	
-	return self;
+	$.jgrid.extend(self);
+	return dataGrid
+	
 };
 
 /**

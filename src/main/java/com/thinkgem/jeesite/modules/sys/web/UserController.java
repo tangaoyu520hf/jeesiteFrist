@@ -333,6 +333,20 @@ public class UserController extends BaseController {
 		return "modules/sys/userModifyPwd";
 	}
 	
+	/**
+	 * 修改个人用户密码
+	 * @param oldPassword
+	 * @param newPassword
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "testGrid")
+	@ResponseBody
+	public Page<User> testGrid(Page<User> page,Model model) {
+		page = systemService.findUser(page, new User());
+		return page;
+	}	
+	
 	@RequiresPermissions("user")
 	@ResponseBody
 	@RequestMapping(value = "treeData")

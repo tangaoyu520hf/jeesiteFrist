@@ -3,6 +3,7 @@
  */
 package com.thinkgem.jeesite.common.persistence.interceptor;
 
+import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.plugin.Interceptor;
@@ -22,6 +23,8 @@ import com.thinkgem.jeesite.common.persistence.dialect.db.SybaseDialect;
 import com.thinkgem.jeesite.common.utils.Reflections;
 
 import java.io.Serializable;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 
 /**
@@ -57,6 +60,19 @@ public abstract class BaseInterceptor implements Interceptor, Serializable {
      */
     @SuppressWarnings("unchecked")
 	protected static Page<Object> convertParameter(Object parameterObject, Page<Object> page) {
+    	Page<Object> pageObject = getPageObject(parameterObject);
+    	if(parameterObject instanceof Map&&null==pageObject){
+    		Map<String, Object> params = ( Map<String, Object>) parameterObject;
+            for (Entry<String, Object> entry : params.entrySet()) {
+            	pageObject = getPageObject(entry.getValue());
+            	if(null!=pageObject)
+            		return pageObject;
+            }
+    	}
+    	return pageObject;
+    }
+    
+    private static Page<Object> getPageObject(Object parameterObject){
     	try{
             if (parameterObject instanceof Page) {
                 return (Page<Object>) parameterObject;

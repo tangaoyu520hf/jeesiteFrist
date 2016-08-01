@@ -272,3 +272,31 @@ function abbr(name, maxLength){
  }  
  return nameSub;  
 }
+/**
+ * 把表单中的标签名称和值序列化为json对象
+ * 注意：如果需要将数组合并，如checkvalue:["a","b","c"]将合并为checkvalue:"a,b,c" 则将注释打开即可
+ */
+(function($){
+    $.fn.serializeJson=function(){
+         var serializeObj={};
+         var array=this.serializeArray();
+        /* var str=this.serialize();*/
+         $(array).each(function(){
+              if(serializeObj[this.name]){
+                   if($.isArray(serializeObj[this.name])){
+                        serializeObj[this.name].push(this.value);
+                   }else{
+                        serializeObj[this.name]=[serializeObj[this.name],this.value];
+                   }
+              }else{
+                   serializeObj[this.name]=this.value;
+              }
+         });
+/*         $.each(serializeObj, function(name, val) {
+              if($.isArray(serializeObj[name])){
+                   serializeObj[name]=val.toString();
+              }
+         });*/
+         return serializeObj;
+    };
+})(jQuery);
