@@ -150,6 +150,12 @@ public class RSA{
 			String context = "body=zf1daee6238cc44813b9dfcc1d0faec555&buyer_email=15952009691&buyer_id=2088102185836145&discount=0.00&gmt_create=2016-08-10 19:56:37&gmt_payment=2016-08-10 19:56:38&is_total_fee_adjust=N&notify_id=8947ae8b47d6339717dd8671956d62fh2y&notify_time=2016-08-10 20:20:38&notify_type=trade_status_sync&out_trade_no=zf1daee6238cc44813b9dfcc1d0faec555&payment_type=1&price=1.00&quantity=1&seller_email=2469053474@qq.com&seller_id=2088421357725477&subject=zf1daee6238cc44813b9dfcc1d0faec555&total_fee=1.00&trade_no=2016081021001004140299656615&trade_status=TRADE_SUCCESS&use_coupon=N";
 			boolean dwadaw = verify(context1, sign,AlipayConfig.alipay_public_key ,"utf-8");
 			System.out.print(dwadaw+"神话");
+			String[] test = new String[]{};
+			System.out.print(test.getClass().isArray()+"哇哈哈");
+
+			if(test instanceof String[]){
+				System.out.print(dwadaw+"神话1");
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
