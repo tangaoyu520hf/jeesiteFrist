@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.ibatis.binding.MapperProxy;
 import org.apache.ibatis.binding.MapperRegistry;
 import org.apache.ibatis.builder.CacheRefResolver;
 import org.apache.ibatis.builder.ResultMapResolver;
@@ -86,6 +87,7 @@ import org.apache.ibatis.transaction.managed.ManagedTransactionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeAliasRegistry;
 import org.apache.ibatis.type.TypeHandlerRegistry;
+import org.mybatis.spring.mapper.MapperFactoryBean;
 
 /**
  * @author Clinton Begin
@@ -122,7 +124,6 @@ public class Configuration {
 
 	protected boolean lazyLoadingEnabled = false;
 	protected ProxyFactory proxyFactory;
-
 	protected String databaseId;
 	/**
 	 * Configuration factory class. Used to create Configuration for loading
