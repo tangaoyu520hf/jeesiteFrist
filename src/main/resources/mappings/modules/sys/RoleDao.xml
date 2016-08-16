@@ -4,6 +4,7 @@
 
 	<resultMap id="roleResult" type="Role">
 		<id property="id" column="id" />
+		
 		<result property="name" column="name" />
 		<result property="enname" column="enname" />
 		<result property="roleType" column="roleType" />
@@ -17,11 +18,12 @@
 			/> <id property="mobile" column="userList.mobile" /> <id property="office.name" 
 			column="userList.office.name" /> <id property="company.name" column="userList.company.name" 
 			/> </collection> -->
-		<collection property="menuList" ofType="Menu">
+		<collection property="menuList"  ofType="Menu">
 			<id property="id" column="menuList.id" />
 		</collection>
 		<collection property="officeList" ofType="Office">
 			<id property="id" column="officeList.id" />
+			
 		</collection>
 	</resultMap>
 

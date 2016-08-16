@@ -1,12 +1,18 @@
 package com.thinkgem.jeesite.test;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +47,10 @@ import org.apache.commons.collections.map.HashedMap;
 import org.apache.ibatis.binding.MapperProxy;
 import org.apache.ibatis.binding.MapperProxyFactory;
 import org.apache.ibatis.executor.loader.cglib.CglibProxyFactory;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.jdbc.SQL;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.aop.framework.AopProxy;
 import org.springframework.aop.framework.ProxyFactory;
@@ -54,6 +64,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -70,6 +81,7 @@ import org.springframework.scheduling.annotation.AsyncAnnotationBeanPostProcesso
 import org.springframework.scheduling.annotation.ProxyAsyncConfiguration;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
@@ -86,28 +98,44 @@ import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.persistence.DataEntity;
 import com.thinkgem.jeesite.common.service.BaseService;
 import com.thinkgem.jeesite.modules.cms.entity.Article;
+import com.thinkgem.jeesite.modules.sys.dao.RoleDao;
 import com.thinkgem.jeesite.modules.sys.dao.UserDao;
+import com.thinkgem.jeesite.modules.sys.entity.Role;
 import com.thinkgem.jeesite.modules.sys.entity.User;
 import com.thinkgem.jeesite.test.Test.B;
 
-public class Test extends Test2 implements InvocationHandler{
+public class Test implements InvocationHandler{
 	private static String GBK="";
 	
-	public Test(char first, char second) {
-		super(first, second);
-		// TODO Auto-generated constructor stub
-	}
 	private static int i = 0;  
 	private static final String BROKEURL = ActiveMQConnection.DEFAULT_BROKER_URL;
 	static CopyOnWriteArrayList<String> arrayList = new CopyOnWriteArrayList<String>();
 	
-	@org.junit.Test
-	public void test6(){
+	public static void test6(){
 		/*System.out.println(arrayList.size());
 		System.out.println(arrayList.size());*/
+		new SQL() {{
+		    SELECT("P.ID, P.USERNAME, P.PASSWORD, P.FULL_NAME");
+		    SELECT("P.LAST_NAME, P.CREATED_ON, P.UPDATED_ON");
+		    FROM("PERSON P");
+		    FROM("ACCOUNT A");
+		    INNER_JOIN("DEPARTMENT D on D.ID = P.DEPARTMENT_ID");
+		    INNER_JOIN("COMPANY C on D.COMPANY_ID = C.ID");
+		    WHERE("P.ID = A.ID");
+		    WHERE("P.FIRST_NAME like ?");
+		    OR();
+		    WHERE("P.LAST_NAME like ?");
+		    GROUP_BY("P.ID");
+		    HAVING("P.LAST_NAME like ?");
+		    OR();
+		    HAVING("P.FIRST_NAME like ?");
+		    ORDER_BY("P.ID");
+		    ORDER_BY("P.FULL_NAME");
+		  }}.toString();
 	}
 	
 	public static void main(String[] args) {
+		test6();
 		String str = new StringBuilder().append("dwa").append("dddd").toString();
 		System.out.println(str.intern()==str);
 		String str1 = new StringBuilder().append("java").append("va").toString();
@@ -116,11 +144,42 @@ public class Test extends Test2 implements InvocationHandler{
 		System.out.println(str1.intern()==str2);
 		/*boolean assignableFrom = Connection.class.isAssignableFrom(TopicConnection.class);
 		System.out.println(assignableFrom);*/
-		/*FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-mvc.xml");
-		System.out.println(applicationContext);*/
-		/*Object bean = applicationContext.getBean("org.springframework.context.annotation.internalAsyncAnnotationProcessor");
-		BeanFactory parentBeanFactory = applicationContext.getParentBeanFactory();
-		System.out.println(bean);*/
+/*		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml");
+		String[] beanNamesForType = applicationContext.getBeanNamesForType(Object.class);
+		System.out.println(beanNamesForType);*/
+		
+		
+/*		try {
+			File resourceAsFile = Resources.getResourceAsFile("com/initData/com");
+			for(File file :  resourceAsFile.listFiles()){
+				System.out.println(file);
+			}
+			ArrayList<URL> list = Collections.list(Test.class.getClassLoader().getResources("com/initData/com"));
+			for(URL url : list){
+				InputStream openStream = url.openStream();
+	            BufferedReader reader = new BufferedReader(new InputStreamReader(openStream));
+	            List<String> lines = new ArrayList<String>();
+	            for (String line; (line = reader.readLine()) != null;) {
+	              lines.add(line);
+	            }
+	            System.out.println(lines);
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		ClassPathResource  classPathResource = new ClassPathResource("spring-context.xml");
+	    DefaultListableBeanFactory  beanFactory = new DefaultListableBeanFactory();
+	    XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+	    reader.loadBeanDefinitions(classPathResource);
+	    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) beanFactory.getBean("sqlSessionFactory");
+	    SqlSession openSession = sqlSessionFactory.openSession();
+	    RoleDao mapper = openSession.getMapper(RoleDao.class);
+	    mapper.getAreainfos();
+	    Role role = mapper.get("1");
+	    System.out.println(role);
 /*		CyclicBarrier barrier = new CyclicBarrier(2,new Runnable() {
 			@Override
 			public void run() {

@@ -51,6 +51,13 @@
 			</otherwise>
 		</choose>
 	</select>
+	<select id="findListTest" resultType="GenTable">
+		SELECT 
+			<include refid="genTableColumns" />
+		
+		  FROM gen_table a where a.name like #{param1}
+	</select>
+	
 	<select id="findAllList" resultType="GenTable">
 		SELECT
 		<include refid="genTableColumns" />

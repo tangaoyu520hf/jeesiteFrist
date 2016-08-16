@@ -37,5 +37,11 @@
 <script src="${ctxStatic}/common/mustache.min.js" type="text/javascript"></script>
 <link href="${ctxStatic}/common/jeesite.min.css" type="text/css"
 	rel="stylesheet" />
-<script src="${ctxStatic}/common/jeesite.min.js" type="text/javascript"></script>
+<script src="${ctxStatic}/common/jeesite.js" type="text/javascript"></script>
 <script type="text/javascript">var ctx = '${ctx}', ctxStatic='${ctxStatic}';</script>
+<link href="${ctxStatic}/jqGrid/4.6/css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+
+<script src="${ctxStatic}/jqGrid/4.6/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<script src="${ctxStatic}/jqGrid/4.6/js/jquery.jqGrid.js" type="text/javascript"></script>
+<script src="${ctxStatic}/jqGrid/4.6/js/jquery.jqGrid.extend.js" type="text/javascript"></script>
+<!-- <script src="//cdn.bootcss.com/jqgrid/4.6.0/js/jquery.jqGrid.min.js"></script> -->

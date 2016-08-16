@@ -14,5 +14,7 @@ import com.thinkgem.jeesite.modules.gen.entity.GenTable;
  */
 @MyBatisDao
 public interface GenTableDao extends CrudDao<GenTable> {
+
+	public void findListTest(String string, GenTable genTable);
 	
 }
