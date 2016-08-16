@@ -14,6 +14,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -99,7 +100,7 @@ public class UserController extends BaseController {
 
 	@RequiresPermissions("sys:user:edit")
 	@RequestMapping(value = "save")
-	public String save(User user, HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) {
+	public String save(@Validated User user, HttpServletRequest request, Model model, RedirectAttributes redirectAttributes) {
 		if(Global.isDemoMode()){
 			addMessage(redirectAttributes, "演示模式，不允许操作！");
 			return "redirect:" + adminPath + "/sys/user/list?repage";
@@ -275,7 +276,7 @@ public class UserController extends BaseController {
 	 */
 	@RequiresPermissions("user")
 	@RequestMapping(value = "info")
-	public String info(User user, HttpServletResponse response, Model model) {
+	public String info(@Validated User user, HttpServletResponse response, Model model) {
 		User currentUser = UserUtils.getUser();
 		if (StringUtils.isNotBlank(user.getName())){
 			if(Global.isDemoMode()){
