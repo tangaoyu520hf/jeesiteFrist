@@ -60,6 +60,7 @@ public abstract class BaseInterceptor implements Interceptor, Serializable {
      */
     @SuppressWarnings("unchecked")
 	protected static Page<Object> convertParameter(Object parameterObject, Page<Object> page) {
+
     	Page<Object> pageObject = getPageObject(parameterObject);
     	if(parameterObject instanceof Map&&null==pageObject){
     		Map<String, Object> params = ( Map<String, Object>) parameterObject;
