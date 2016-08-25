@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.thinkgem.jeesite.common.persistence.CrudDao;
 import com.thinkgem.jeesite.common.persistence.annotation.MyBatisDao;
+import com.thinkgem.jeesite.modules.report.ReportSeries;
 import com.thinkgem.jeesite.modules.sys.entity.User;
 
 /**
@@ -72,4 +73,5 @@ public interface UserDao extends CrudDao<User> {
 	 */
 	public int updateUserInfo(User user);
 
+	List<ReportSeries<Double>> findReport();
 }

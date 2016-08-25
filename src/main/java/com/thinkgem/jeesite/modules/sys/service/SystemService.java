@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.thinkgem.jeesite.modules.report.ReportSeries;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.Group;
 import org.apache.shiro.session.Session;
@@ -98,6 +99,7 @@ public class SystemService extends BaseService implements InitializingBean {
 		user.setPage(page);
 		// 执行分页查询
 		page.setList(userDao.findList(user));
+		List<ReportSeries<Double>> reportSeries =  userDao.findReport();
 		return page;
 	}
 	

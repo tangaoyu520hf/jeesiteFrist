@@ -3,6 +3,7 @@
  */
 package com.thinkgem.jeesite.modules.sys.entity;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +31,7 @@ import com.thinkgem.jeesite.common.utils.excel.fieldtype.RoleListType;
 public class User extends DataEntity<User> {
 
 	private static final long serialVersionUID = 1L;
-	private Office company;	// 归属公司
+	private com.thinkgem.jeesite.modules.sys.entity.Office company;	// 归属公司
 	private Office office;	// 归属部门
 	private String loginName;// 登录名
 	private String password;// 密码

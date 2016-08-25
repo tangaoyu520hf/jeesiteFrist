@@ -1,108 +1,29 @@
 package com.thinkgem.jeesite.test;
 
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.Thread.UncaughtExceptionHandler;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.SynchronousQueue;
-
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageProducer;
-import javax.jms.Queue;
-import javax.jms.Session;
-import javax.jms.TemporaryQueue;
-import javax.jms.TextMessage;
-import javax.jms.TopicConnection;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.ServletContext;
-import javax.validation.groups.Default;
-
+import com.thinkgem.jeesite.modules.sys.dao.RoleDao;
+import com.thinkgem.jeesite.modules.sys.entity.Role;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.commons.collections.map.HashedMap;
-import org.apache.ibatis.binding.MapperProxy;
-import org.apache.ibatis.binding.MapperProxyFactory;
-import org.apache.ibatis.executor.loader.cglib.CglibProxyFactory;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
-import org.springframework.aop.framework.AopProxy;
-import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.aop.framework.ProxyFactoryBean;
-import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
-import org.springframework.aop.target.HotSwappableTargetSource;
-import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.cglib.proxy.InvocationHandler;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.scheduling.annotation.AsyncAnnotationBeanPostProcessor;
-import org.springframework.scheduling.annotation.ProxyAsyncConfiguration;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.interceptor.TransactionProxyFactoryBean;
-import org.springframework.util.ResourceUtils;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver;
 
-import com.caucho.hessian.server.HessianServlet;
-import com.tangaoyu.act.test.ActTest;
-import com.tangaoyu.act.test.AopTest;
-import com.tangaoyu.act.test.FactoryTest;
-import com.thinkgem.jeesite.common.annotation.AdviceTest;
-import com.thinkgem.jeesite.common.annotation.AopTestIn;
-import com.thinkgem.jeesite.common.annotation.CglipProxy;
-import com.thinkgem.jeesite.common.annotation.MybeanProcess;
-import com.thinkgem.jeesite.common.persistence.CrudDao;
-import com.thinkgem.jeesite.common.persistence.DataEntity;
-import com.thinkgem.jeesite.common.service.BaseService;
-import com.thinkgem.jeesite.modules.cms.entity.Article;
-import com.thinkgem.jeesite.modules.sys.dao.RoleDao;
-import com.thinkgem.jeesite.modules.sys.dao.UserDao;
-import com.thinkgem.jeesite.modules.sys.entity.Role;
-import com.thinkgem.jeesite.modules.sys.entity.User;
-import com.thinkgem.jeesite.test.Test.B;
+import javax.jms.*;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Test implements InvocationHandler{
 	private static String GBK="";
@@ -177,7 +98,7 @@ public class Test implements InvocationHandler{
 	    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) beanFactory.getBean("sqlSessionFactory");
 	    SqlSession openSession = sqlSessionFactory.openSession();
 	    RoleDao mapper = openSession.getMapper(RoleDao.class);
-	    mapper.getAreainfos();
+	    //mapper.getAreainfos();
 	    Role role = mapper.get("1");
 	    System.out.println(role);
 /*		CyclicBarrier barrier = new CyclicBarrier(2,new Runnable() {
@@ -472,7 +393,7 @@ public class Test implements InvocationHandler{
         //消息生产者
         MessageProducer messageProducer;
         //实例化连接工厂
-        connectionFactory = new org.apache.activemq.ActiveMQConnectionFactory(BROKEURL);
+        connectionFactory = new ActiveMQConnectionFactory(BROKEURL);
         try {
             //通过连接工厂获取连接
             connection = connectionFactory.createConnection();
