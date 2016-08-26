@@ -25,6 +25,8 @@ import com.thinkgem.jeesite.common.utils.CookieUtils;
 public class Page<T> {
 	
 	private int pageNo = 1; // 当前页码
+	private String page;//用于接收页面的
+	private String pagesize;//用于接收页面值
 	private int pageSize = Integer.valueOf(Global.getConfig("page.pageSize")); // 页面大小，设置为“-1”表示不进行分页（分页无效）
 	private int totalPage;//总页数
 	
@@ -78,22 +80,22 @@ public class Page<T> {
 		String no = request.getParameter("pageNo");
 		if (StringUtils.isNumeric(no)){
 			CookieUtils.setCookie(response, "pageNo", no);
-			this.setPageNo(Integer.parseInt(no));
+			this.setPageNo(no);
 		}else if (request.getParameter("repage")!=null){
 			no = CookieUtils.getCookie(request, "pageNo");
 			if (StringUtils.isNumeric(no)){
-				this.setPageNo(Integer.parseInt(no));
+				this.setPageNo(no);
 			}
 		}
 		// 设置页面大小参数（传递repage参数，来记住页码大小）
 		String size = request.getParameter("pageSize");
 		if (StringUtils.isNumeric(size)){
 			CookieUtils.setCookie(response, "pageSize", size);
-			this.setPageSize(Integer.parseInt(size));
+			this.setPageSize(size);
 		}else if (request.getParameter("repage")!=null){
 			no = CookieUtils.getCookie(request, "pageSize");
 			if (StringUtils.isNumeric(size)){
-				this.setPageSize(Integer.parseInt(size));
+				this.setPageSize(size);
 			}
 		}else if (defaultPageSize != -2){
 			this.pageSize = defaultPageSize;
@@ -133,7 +135,7 @@ public class Page<T> {
 	 */
 	public Page(int pageNo, int pageSize, long count, List<T> list) {
 		this.setCount(count);
-		this.setPageNo(pageNo);
+		this.setPageNo(pageNo+"");
 		this.pageSize = pageSize;
 		this.list = list;
 	}
@@ -333,8 +335,11 @@ public class Page<T> {
 	 * 设置当前页码
 	 * @param pageNo
 	 */
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
+	public void setPageNo(String pageNo) {
+		if (StringUtils.isNumeric(pageNo)){
+			int tempPageNo  = Integer.parseInt(pageNo);
+			this.pageNo = tempPageNo <= 0 ? 10 : tempPageNo > 500 ? 500 : tempPageNo;
+		}
 	}
 	
 	/**
@@ -349,8 +354,11 @@ public class Page<T> {
 	 * 设置页面大小（最大500）
 	 * @param pageSize
 	 */
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize <= 0 ? 10 : pageSize > 500 ? 500 : pageSize;
+	public void setPageSize(String pageSize) {
+		if (StringUtils.isNumeric(pageSize)){
+			int tempPageSize  = Integer.parseInt(pageSize);
+			this.pageSize = tempPageSize <= 0 ? 10 : tempPageSize > 500 ? 500 : tempPageSize;
+		}
 	}
 
 	/**

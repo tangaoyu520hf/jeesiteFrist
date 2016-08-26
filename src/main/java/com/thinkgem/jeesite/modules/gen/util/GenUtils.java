@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -255,7 +256,7 @@ public class GenUtils {
 	/**
 	 * 根据分类获取模板列表
 	 * @param config
-	 * @param genScheme
+	 * @param category
 	 * @param isChildTable 是否是子表
 	 * @return
 	 */
@@ -292,7 +293,6 @@ public class GenUtils {
 	/**
 	 * 获取数据模型
 	 * @param genScheme
-	 * @param genTable
 	 * @return
 	 */
 	public static Map<String, Object> getDataModel(GenScheme genScheme){
@@ -328,7 +328,7 @@ public class GenUtils {
 	 * 生成到文件
 	 * @param tpl
 	 * @param model
-	 * @param replaceFile
+	 * @param isReplaceFile
 	 * @return
 	 */
 	public static String generateToFile(GenTemplate tpl, Map<String, Object> model, boolean isReplaceFile){
@@ -361,9 +361,11 @@ public class GenUtils {
 	
 	public static void main(String[] args) {
 		try {
+			BigDecimal bigDecimal = new BigDecimal(5);
+			BigDecimal bigDecimal2 = new BigDecimal(1);
 			GenConfig config = getConfig();
-			System.out.println(config);
-			System.out.println(JaxbMapper.toXml(config));
+			System.out.println(bigDecimal.compareTo(bigDecimal2));
+			/*System.out.println(JaxbMapper.toXml(config));*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

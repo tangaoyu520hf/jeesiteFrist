@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.thinkgem.jeesite.modules.sys.dao.UserDao">
 	<cache/>
-	<!-- <resultMap id="userResult" type="User"> <id property="id" column="id" 
+	<!-- <resultMap id="userResult" type="User"> <id property="id" column="id"
 		/> <result property="company.id" column="company.id" /> <result property="office.id" 
 		column="office.id" /> <result property="loginName" column="login_name" /> 
 		<result property="password" column="password" /> <result property="no" column="no" 
@@ -40,6 +40,23 @@
 		column="roleList.dataScope" /> <collection property="officeList" ofType="Office"> 
 		<id property="id" column="roleList.officeList.id" /> </collection> </collection> 
 		</resultMap> -->
+
+	<resultMap id="CountSalesResultMap" type="com.thinkgem.jeesite.modules.report.ReportSeries">
+		<result column="name" property="name"/>
+		<result column="type" property="type"/>
+		<collection property="data" ofType="double">
+		</collection>
+	</resultMap>
+
+	<!-- 根据编号获得用户 -->
+	<select id="findReport" resultType="CountSalesResultMap" >
+		SELECT
+		<include refid="userColumns" /><!-- , ro.office_id AS "roleList.officeList.id" -->
+		FROM sys_user a
+		<include refid="userJoins" /><!-- LEFT JOIN sys_role_office ro
+			ON ro.role_id = r.id -->
+
+	</select>
 
 	<sql id="userColumns">
 		a.id,
