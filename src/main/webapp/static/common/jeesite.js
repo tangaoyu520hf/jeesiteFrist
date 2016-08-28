@@ -299,4 +299,36 @@ function abbr(name, maxLength){
          });*/
          return serializeObj;
     };
+    var util = $.utils={};
+    /**
+     * 分页查询提交
+     * @param params 参数
+     * @param url    分页地址
+     * @method 提交方式
+     */
+    util.submitParamsByPageSend = function(params,url,method) {
+        var form = document.createElement("form");
+        form.method = method?method:"GET";
+        form.action = url;
+        for(var attr in params){
+            var element = util.createInput(attr,params[attr],'hidden');
+            $(form).append(element);
+        }
+        $(document.body).append(form);
+        form.submit();
+    }
+    /**
+     *  创建input
+     * @param name
+     * @param value
+     * @param type
+     * @returns {Element}
+     */
+    util.createInput = function(name,value,type){
+        var element = document.createElement("input");
+        element.name = name;
+        element.value = value;
+        element.type = type;
+        return element
+    }
 })(jQuery);

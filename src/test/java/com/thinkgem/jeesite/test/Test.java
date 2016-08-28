@@ -19,6 +19,7 @@ import org.springframework.jms.core.MessageCreator;
 
 import javax.jms.*;
 import java.lang.reflect.Method;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -56,13 +57,19 @@ public class Test implements InvocationHandler{
 	}
 	
 	public static void main(String[] args) {
-		test6();
+		DecimalFormat df = new DecimalFormat("0");
+		Double d = new Double("1.397545871E10");
+
+		System.out.println(d);
+		System.out.println(df.format(d));
+
+/*		test6();
 		String str = new StringBuilder().append("dwa").append("dddd").toString();
 		System.out.println(str.intern()==str);
 		String str1 = new StringBuilder().append("java").append("va").toString();
 		String str2 = "javava";
 		System.out.println(str1.intern()==str1);
-		System.out.println(str1.intern()==str2);
+		System.out.println(str1.intern()==str2);*/
 		/*boolean assignableFrom = Connection.class.isAssignableFrom(TopicConnection.class);
 		System.out.println(assignableFrom);*/
 /*		FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("classpath:spring-context.xml");
