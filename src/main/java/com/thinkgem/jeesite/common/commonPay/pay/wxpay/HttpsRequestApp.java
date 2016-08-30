@@ -1,7 +1,7 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay;
 
-import com.pay.common.PayInfoUtil;
-import com.pay.wxpay.service.IServiceRequest;
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.service.IServiceRequest;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
@@ -34,7 +34,7 @@ import java.security.cert.CertificateException;
  * APP支付请求器
  * Created by zliu on 15-3-18.
  */
-public class HttpsRequestApp implements IServiceRequest{
+public class HttpsRequestApp implements IServiceRequest {
 
     public interface ResultListener {
 

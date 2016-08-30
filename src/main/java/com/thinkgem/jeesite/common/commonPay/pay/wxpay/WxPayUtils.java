@@ -1,10 +1,13 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay;
 
-import com.pay.common.CommonConstants;
-import com.pay.common.QRcodeUtil;
-import com.pay.common.PayInfoUtil;
-import com.pay.wxpay.protocol.*;
-import com.pay.wxpay.service.*;
+import com.thinkgem.jeesite.common.commonPay.pay.common.CommonConstants;
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.OrderQueryReqData;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.OrderQueryResData;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.UnifiedOrderReqData;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.UnifiedOrderResData;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.service.OrderQueryService;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.service.UnifiedOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +84,7 @@ public class WxPayUtils {
                 String code_url = res.getCode_url();
                 String img_url = PayInfoUtil.instants().getValue("codeImgPath")+outTradeNo+".png";
                 String imgPath = CommonConstants.ROOTPATH+img_url;
-                new QRcodeUtil().encoderQRCode(code_url,imgPath);
+               /* new QRcodeUtil().encoderQRCode(code_url,imgPath);*/
                 map.put("imgUrl",img_url);
                 map.put("msg","请求微信下单成功");
                 System.out.println("------code_url:"+code_url);

@@ -1,12 +1,12 @@
 package com.thinkgem.jeesite.common.commonPay.pay.unionpay;
 
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.LogUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKConfig;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKUtil;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import com.pay.common.PayInfoUtil;
-import com.unionpay.acp.sdk.LogUtil;
-import com.unionpay.acp.sdk.SDKConfig;
-import com.unionpay.acp.sdk.SDKUtil;
 
 public class AcpPayUtil extends AcpBase {
 

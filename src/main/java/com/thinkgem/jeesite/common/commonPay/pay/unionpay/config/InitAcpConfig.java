@@ -1,10 +1,11 @@
 package com.thinkgem.jeesite.common.commonPay.pay.unionpay.config;
 
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKConfig;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.http.HttpServlet;
 
-import com.unionpay.acp.sdk.SDKConfig;
 
 public class InitAcpConfig extends HttpServlet implements
 		ServletContextListener {

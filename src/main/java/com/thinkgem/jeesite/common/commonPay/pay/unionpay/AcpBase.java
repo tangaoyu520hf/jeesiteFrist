@@ -1,5 +1,10 @@
 package com.thinkgem.jeesite.common.commonPay.pay.unionpay;
 
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.HttpClient;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKConstants;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SecureUtil;
+
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -12,11 +17,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
-
-import com.unionpay.acp.sdk.HttpClient;
-import com.unionpay.acp.sdk.SDKConstants;
-import com.unionpay.acp.sdk.SDKUtil;
-import com.unionpay.acp.sdk.SecureUtil;
 
 public class AcpBase {
 

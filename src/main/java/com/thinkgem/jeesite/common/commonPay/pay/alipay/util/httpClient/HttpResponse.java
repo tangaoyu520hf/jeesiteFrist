@@ -1,6 +1,6 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.util.httpClient;
 
-import com.pay.alipay.config.AlipayConfig;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.config.AlipayConfig;
 import org.apache.commons.httpclient.Header;
 
 import java.io.UnsupportedEncodingException;

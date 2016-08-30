@@ -1,8 +1,9 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.exception;
 
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.StringUtil;
+
 import java.io.PrintStream;
 
-import com.pay.alipay.util.StringUtil;
 
 public class AlipayExcetion extends Exception {
     private static final long serialVersionUID = 1L;

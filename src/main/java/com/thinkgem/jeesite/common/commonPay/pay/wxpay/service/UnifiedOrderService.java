@@ -1,16 +1,16 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay.service;
 
-import com.pay.common.PayInfoUtil;
-import com.pay.wxpay.*;
-import com.pay.wxpay.protocol.UnifiedOrderDto;
-import com.pay.wxpay.protocol.UnifiedOrderReqData;
-import com.pay.wxpay.protocol.UnifiedOrderResData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.BBCRquestDto;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.Configure;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.Signature;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.Util;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.UnifiedOrderDto;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.UnifiedOrderReqData;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.UnifiedOrderResData;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
-
 import java.io.InputStream;
 
 /**
@@ -83,7 +83,7 @@ public class UnifiedOrderService extends BaseService{
             String resp = Util.inputStreamToString(e);
             System.out.println("-------------------------resp---->>" + resp);
             if(Signature.checkIsSignValidFromResponseString(resp,key)) {
-                unifiedOrderDto = (UnifiedOrderDto)Util.getObjectFromXML(resp, UnifiedOrderDto.class);
+                unifiedOrderDto = (UnifiedOrderDto) Util.getObjectFromXML(resp, UnifiedOrderDto.class);
                 if(null!=unifiedOrderDto) {
                     unifiedOrderDto.setSignState("1");//验证成功
                 }

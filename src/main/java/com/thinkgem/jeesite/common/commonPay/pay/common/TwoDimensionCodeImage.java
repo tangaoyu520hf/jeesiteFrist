@@ -1,5 +1,5 @@
+/*
 package com.thinkgem.jeesite.common.commonPay.pay.common;
-import jp.sourceforge.qrcode.data.QRCodeImage;
 
 import java.awt.image.BufferedImage;
 public class TwoDimensionCodeImage implements QRCodeImage {
@@ -22,3 +22,4 @@ public class TwoDimensionCodeImage implements QRCodeImage {
 		return bufImg.getWidth();
 	}
 }
+*/

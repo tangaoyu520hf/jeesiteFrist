@@ -1,8 +1,8 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.util;
 
-import com.pay.alipay.config.AlipayConfig;
-import com.pay.alipay.sign.MD5;
-import com.pay.alipay.sign.RSA;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.config.AlipayConfig;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.sign.MD5;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.sign.RSA;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,8 +1,8 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay;
 
-import java.util.Date;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.StringUtil;
 
-import com.pay.alipay.util.StringUtil;
+import java.util.Date;
 
 /**
  * 支付宝即时交易数据对象

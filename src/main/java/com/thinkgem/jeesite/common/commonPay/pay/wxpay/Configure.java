@@ -1,6 +1,7 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay;
 
-import com.pay.common.PayInfoUtil;
+
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
 
 /**
  * Created by zl on 15-3-18.

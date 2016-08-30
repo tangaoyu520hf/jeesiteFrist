@@ -1,6 +1,6 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.util;
 
-import com.pay.alipay.config.AlipayConfig;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.config.AlipayConfig;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.httpclient.methods.multipart.FilePartSource;
 import org.apache.commons.httpclient.methods.multipart.PartSource;

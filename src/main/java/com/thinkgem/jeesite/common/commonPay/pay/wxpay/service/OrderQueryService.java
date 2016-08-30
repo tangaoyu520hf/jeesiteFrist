@@ -1,13 +1,8 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay.service;
 
-import com.pay.wxpay.Configure;
-import com.pay.wxpay.Signature;
-import com.pay.wxpay.Util;
-import com.pay.wxpay.protocol.OrderQueryReqData;
-import com.pay.wxpay.protocol.UnifiedOrderDto;
-import com.pay.wxpay.protocol.UnifiedOrderReqData;
 
-import javax.servlet.http.HttpServletRequest;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.Configure;
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.protocol.OrderQueryReqData;
 
 /**
  * 公众号支付--查询订单

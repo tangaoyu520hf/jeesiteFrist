@@ -1,12 +1,12 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.util;
 
-import com.pay.alipay.AlipayConstant;
-import com.pay.alipay.config.AlipayConfig;
-import com.pay.alipay.sign.MD5;
-import com.pay.alipay.util.httpClient.HttpProtocolHandler;
-import com.pay.alipay.util.httpClient.HttpRequest;
-import com.pay.alipay.util.httpClient.HttpResponse;
-import com.pay.alipay.util.httpClient.HttpResultType;
+import com.alipay.config.AlipayConfig;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.AlipayConstant;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.sign.MD5;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.httpClient.HttpProtocolHandler;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.httpClient.HttpRequest;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.httpClient.HttpResponse;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.httpClient.HttpResultType;
 import org.apache.commons.httpclient.NameValuePair;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

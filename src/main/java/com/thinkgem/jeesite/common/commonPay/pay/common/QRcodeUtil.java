@@ -1,8 +1,5 @@
+/*
 package com.thinkgem.jeesite.common.commonPay.pay.common;
-
-import com.swetake.util.Qrcode;
-import jp.sourceforge.qrcode.QRCodeDecoder;
-import jp.sourceforge.qrcode.exception.DecodingFailedException;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,51 +11,61 @@ import java.io.OutputStream;
 
 public class QRcodeUtil {
 	
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param imgPath 图片路径
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, String imgPath) {
 		this.encoderQRCode(content, imgPath, "png", 7,null);
 	}
 	
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param output 输出流
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, OutputStream output) {
 		this.encoderQRCode(content, output, "png", 7);
 	}
 	
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param imgPath 图片路径
 	 * @param imgType 图片类型
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, String imgPath, String imgType) {
 		this.encoderQRCode(content, imgPath, imgType, 7,null);
 	}
 	
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param output 输出流
 	 * @param imgType 图片类型
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, OutputStream output, String imgType) {
 		this.encoderQRCode(content, output, imgType, 7);
 	}
 
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param imgPath 图片路径
 	 * @param imgType 图片类型
 	 * @param size 二维码尺寸
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, String imgPath, String imgType, int size,String ccbPath) {
 		try {
 			BufferedImage bufImg = this.qRCodeCommon(content, imgType, size,ccbPath);
@@ -71,13 +78,15 @@ public class QRcodeUtil {
 		}
 	}
 
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片
 	 * @param content 存储内容
 	 * @param output 输出流
 	 * @param imgType 图片类型
 	 * @param size 二维码尺寸
-	 */
+	 *//*
+
 	public void encoderQRCode(String content, OutputStream output, String imgType, int size) {
 		try {
 			BufferedImage bufImg = this.qRCodeCommon(content, imgType, size,null);
@@ -88,15 +97,18 @@ public class QRcodeUtil {
 		}
 	}
 	
-	/**
+	*/
+/**
 	 * 生成二维码(QRCode)图片的公共方法
 	 * @param content 存储内容
 	 * @param imgType 图片类型
 	 * @param size 二维码尺寸
 	 * @param ccbPath 中间logo图片地址
 	 * @return
-	 */
-	private BufferedImage qRCodeCommon(String content, String imgType, int size,String ccbPath) {
+	 *//*
+
+*/
+/*	private BufferedImage qRCodeCommon(String content, String imgType, int size,String ccbPath) {
 		BufferedImage bufImg = null;
 		try {
 			Qrcode qrcodeHandler = new Qrcode();
@@ -143,13 +155,16 @@ public class QRcodeUtil {
 			e.printStackTrace();
 		}
 		return bufImg;
-	}
+	}*//*
 
-	/**
+
+	*/
+/**
 	 * 解析二维码（QRCode）
 	 * @param imgPath 图片路径
 	 * @return
-	 */
+	 *//*
+
 	public String decoderQRCode(String imgPath) {
 		// QRCode 二维码图片的文件
 		File imageFile = new File(imgPath);
@@ -169,11 +184,13 @@ public class QRcodeUtil {
 		return content;
 	}
 	
-	/**
+	*/
+/**
 	 * 解析二维码（QRCode）
 	 * @param input 输入流
 	 * @return
-	 */
+	 *//*
+
 	public String decoderQRCode(InputStream input) {
 		BufferedImage bufImg = null;
 		String content = null;
@@ -211,3 +228,4 @@ public class QRcodeUtil {
 		System.out.println("========decoder success!!!");
 	}
 }
+*/

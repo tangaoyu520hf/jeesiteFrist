@@ -1,14 +1,13 @@
 package com.thinkgem.jeesite.common.commonPay.pay.unionpay;
 
 
-import com.pay.common.PayCommonUtil;
-import com.unionpay.acp.sdk.LogUtil;
-import com.unionpay.acp.sdk.SDKConstants;
-import com.unionpay.acp.sdk.SDKUtil;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayCommonUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.LogUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKConstants;
+import com.thinkgem.jeesite.common.commonPay.pay.unionpay.sdk.SDKUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

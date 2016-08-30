@@ -1,11 +1,11 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay;
 
-import com.pay.alipay.exception.AlipayExcetion;
-import com.pay.alipay.exception.AlipayExcetionConstant;
-import com.pay.alipay.exception.AlipayVerifyExction;
-import com.pay.alipay.util.AlipayNotify;
-import com.pay.alipay.util.AlipaySubmit;
-import com.pay.alipay.util.UtilDate;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.exception.AlipayExcetion;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.exception.AlipayExcetionConstant;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.exception.AlipayVerifyExction;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.AlipayNotify;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.AlipaySubmit;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.UtilDate;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;

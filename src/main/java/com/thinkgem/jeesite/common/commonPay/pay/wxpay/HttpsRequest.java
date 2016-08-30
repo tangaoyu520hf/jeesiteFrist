@@ -1,9 +1,9 @@
 package com.thinkgem.jeesite.common.commonPay.pay.wxpay;
 
+import com.thinkgem.jeesite.common.commonPay.pay.wxpay.service.IServiceRequest;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
-import com.pay.wxpay.service.IServiceRequest;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.config.RequestConfig;
@@ -29,7 +29,7 @@ import java.security.cert.CertificateException;
 /**
  * Created by zl on 15-3-18.
  */
-public class HttpsRequest implements IServiceRequest{
+public class HttpsRequest implements IServiceRequest {
 
     public interface ResultListener {
 

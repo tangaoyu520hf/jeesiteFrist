@@ -1,6 +1,5 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay.config;
 
-import com.pay.common.PayInfoUtil;
 /* *
  *类名：AlipayConfig
  *功能：基础配置类
@@ -21,6 +20,8 @@ import com.pay.common.PayInfoUtil;
  *1、检查浏览器配置，不让浏览器做弹框屏蔽设置
  *2、更换浏览器或电脑，重新登录查询。
  */
+
+import com.thinkgem.jeesite.common.commonPay.pay.common.PayInfoUtil;
 
 public class AlipayConfig {
     //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓

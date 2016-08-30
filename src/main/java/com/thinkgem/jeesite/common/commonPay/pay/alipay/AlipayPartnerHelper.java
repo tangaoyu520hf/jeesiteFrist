@@ -1,6 +1,6 @@
 package com.thinkgem.jeesite.common.commonPay.pay.alipay;
 
-import com.pay.alipay.util.StringUtil;
+import com.thinkgem.jeesite.common.commonPay.pay.alipay.util.StringUtil;
 
 /**
  * 担保交易数据模型对象
