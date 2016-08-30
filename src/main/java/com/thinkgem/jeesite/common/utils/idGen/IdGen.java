@@ -1,12 +1,13 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.thinkgem.jeesite.common.utils;
+package com.thinkgem.jeesite.common.utils.idGen;
 
 import java.io.Serializable;
 import java.security.SecureRandom;
 import java.util.UUID;
 
+import com.thinkgem.jeesite.common.utils.Encodes;
 import org.activiti.engine.impl.cfg.IdGenerator;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionIdGenerator;
