@@ -49,7 +49,7 @@
 	</resultMap>
 
 	<!-- 根据编号获得用户 -->
-	<select id="findReport" resultType="CountSalesResultMap" >
+	<select id="findReport" resultMap="CountSalesResultMap" >
 		SELECT
 		<include refid="userColumns" /><!-- , ro.office_id AS "roleList.officeList.id" -->
 		FROM sys_user a

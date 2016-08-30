@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+        default-lazy-init="true">
+    <description>Spring Configuration</description>
+
+    <!-- 使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
+    <bean id="taskJob" class="com.thinkgem.jeesite.common.quartz.TaskFrist"/>
+    <!--<bean id="taskJob2" class=" com.thinkgem.jeesite.common.quartz.LoadJop">
+        <property name="schedulerFactoryBean" ref="scheduler"></property>
+    </bean>-->
+
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="group" value="job_work"/>
+        <property name="name" value="job_work_name"/>
+        <!--false表示等上一个任务执行完后再开启新的任务-->
+        <property name="concurrent" value="false"/>
+        <property name="targetObject">
+            <ref bean="taskJob"/>
+        </property>
+        <property name="targetMethod" value="sendNotify"/>
+    </bean>
+    <!--  调度触发器 -->
+    <bean id="myTrigger"
+          class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="name" value="work_default_name"/>
+        <property name="group" value="work_default"/>
+        <property name="jobDetail">
+            <ref bean="jobDetail" />
+        </property>
+        <property name="cronExpression">
+            <value>0/5 * * * * ?</value>
+        </property>
+    </bean>
+    <!-- 调度工厂 -->
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+<!--        <property name="triggers">
+            <list>
+                <ref bean="myTrigger"/>
+    </list>
+</property>-->
+       <property name="dataSource">
+                  <ref bean="dataSource" />
+      </property>
+      <property name="configLocation" value="classpath:quartz.properties" />
+    </bean>
+
+</beans>
