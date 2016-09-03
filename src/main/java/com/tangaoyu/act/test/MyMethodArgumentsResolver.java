@@ -12,6 +12,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+/**
+ * 自定义参数解析器
+ */
 public class MyMethodArgumentsResolver implements HandlerMethodArgumentResolver {
 	
 	public boolean supportsParameter(MethodParameter parameter) {

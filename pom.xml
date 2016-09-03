@@ -193,7 +193,6 @@
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <!-- spring orm -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -204,6 +203,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <!--redis整合spring-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.4.1.RELEASE</version>
         </dependency>
 
         <!-- bean validate -->

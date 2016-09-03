@@ -15,13 +15,29 @@
 	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="maxIdle" value="300" /> <!-- 最大能够保持idel状态的对象数 -->
 		<property name="maxTotal" value="60000" /> <!-- 最大分配的对象数 -->
-		<property name="testOnBorrow" value="true" /> <!-- 当调用borrow Object方法时，是否进行有效性检查 -->
+		<property name="testOnBorrow" value="false" /> <!-- 当调用borrow Object方法时，是否进行有效性检查 -->
 	</bean>
 
 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
 		<constructor-arg index="0" ref="jedisPoolConfig" />
 		<constructor-arg index="1" value="${redis.host}" />
 		<constructor-arg index="2" value="${redis.port}" type="int" />
+		<constructor-arg index="3" value="30000" />
+		<constructor-arg index="4" value="${redis.password}" />
 	</bean>
+
+	<!--<cache:annotation-driven/>-->
+	<bean id="jedisConnectionFactory"
+		  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="hostName" value="${redis.host}"/>
+		<property name="port" value="${redis.port}"/>
+		<property name="password" value="${redis.password}"/>
+		<property name="poolConfig" ref="jedisPoolConfig"/>
+	</bean>
+
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+		<property name="connectionFactory" ref="jedisConnectionFactory"/>
+	</bean>
+
 
 </beans>
