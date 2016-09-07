@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
@@ -22,11 +23,11 @@ import freemarker.template.Template;
 public class SendMailUtil {
 
 	// private static final String smtphost = "192.168.1.70";
-	private static final String from = "thinkgem@163.com";
+	private static final String from = "tangaoyu520hf@163.com";
 	private static final String fromName = "测试公司";
 	private static final String charSet = "utf-8";
-	private static final String username = "thinkgem@163.com";
-	private static final String password = "123456";
+	private static final String username = "tangaoyu520hf@163.com";
+	private static final String password = "tgy466276806";
 
 	private static Map<String, String> hostMap = new HashMap<String, String>();
 	static {
@@ -142,6 +143,11 @@ public class SendMailUtil {
 	 */
 	public static void sendCommonMail(String toMailAddr, String subject,
 			String message) {
+/*		EmailAttachment attachment = new EmailAttachment();
+		attachment.setPath("D:\\javaSoftwareSteup\\VPN\\SwitchyOmega.rar");
+		attachment.setDisposition(EmailAttachment.ATTACHMENT);
+		attachment.setDescription("test 附件");
+		attachment.setName("SwitchyOmega.rar");*/
 		HtmlEmail hemail = new HtmlEmail();
 		try {
 			hemail.setHostName(getHost(from));
@@ -151,7 +157,11 @@ public class SendMailUtil {
 			hemail.setFrom(from, fromName);
 			hemail.setAuthentication(username, password);
 			hemail.setSubject(subject);
+			hemail.setSocketTimeout(10000);
+			hemail.setSocketConnectionTimeout(10000);
+			hemail.setHtmlMsg("<html>The apache logo - <img src=\"cid:"+123+"\"></html>");
 			hemail.setMsg(message);
+			/*hemail.attach(attachment);*/
 			hemail.send();
 			System.out.println("email send true!");
 		} catch (Exception e) {
@@ -283,10 +293,11 @@ public class SendMailUtil {
 		// System.out.println("email send error!");
 		// }
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("subject", "测试标题");
-		map.put("content", "测试 内容");
+		map.put("subject", "dwadwa");
+		map.put("content", "dwadwadwa");
 		String templatePath = "mailtemplate/test.ftl";
-		sendFtlMail("test@163.com", "sendemail test!", templatePath, map);
+		sendCommonMail("553485311@qq.com", "sendemail test!","张辉你这个蠢货");
+		/*sendFtlMail("553485311@qq.com", "sendemail test!", templatePath, map);*/
 
 		// System.out.println(getFileName("mailtemplate/test.ftl"));
 	}
