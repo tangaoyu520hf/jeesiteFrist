@@ -91,7 +91,7 @@
 	<!-- </bean> -->
 	<bean id="sessionDAO"
 		class="com.thinkgem.jeesite.common.security.shiro.session.CacheSessionDAO">
-		<property name="sessionIdGenerator" ref="idGen" />
+		<property name="sessionIdGenerator" ref="idGen1" />
 		<property name="activeSessionsCacheName" value="activeSessionsCache" />
 		<property name="cacheManager" ref="shiroCacheManager" />
 	</bean>

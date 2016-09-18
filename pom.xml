@@ -705,9 +705,23 @@
             <artifactId>quartz</artifactId>
             <version>2.2.3</version>
         </dependency>
-
-
-
+        <!-- 极光推送 -->
+        <dependency>
+            <groupId>cn.jpush.api</groupId>
+            <artifactId>jpush-client</artifactId>
+            <version>3.2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>mockwebserver</artifactId>
+            <version>1.5.4</version>
+            <scope>test</scope>
+        </dependency>
         <!-- 自定义jar依赖包
         <dependency>
             <groupId>com.thinkgem.jeesite</groupId>

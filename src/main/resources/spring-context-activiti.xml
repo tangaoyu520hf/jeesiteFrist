@@ -23,7 +23,7 @@
 		<property name="processDefinitionCacheLimit" value="10" />
 
 		<!-- UUID作为主键生成策略 -->
-		<property name="idGenerator" ref="idGen" />
+		<property name="idGenerator" ref="idGen1" />
 
 		<!-- 生成流程图的字体 -->
 		<property name="activityFontName" value="${activiti.diagram.activityFontName}" />

@@ -32,11 +32,11 @@ public class SpringTransactionalContextTests {
 	private RedisTemplate redisTemplate;
 	@Test
 	public void testRedis(){
-/*		Jedis jedis = new Jedis("192.168.214.128", 6379);
+		Jedis jedis = new Jedis("192.168.214.128", 6379);
 		jedis.auth("123456");
 		jedis.set("shenlinnan", "hahahahahaha");
 		System.out.println(jedis.get("shenlinnan"));
-		jedis.close();*/
+		jedis.close();
 /*		String tangaoyu = set("tangaoyu","草泥马",0);
 		tangaoyu = get("tangaoyu");
 		System.out.println(tangaoyu);*/

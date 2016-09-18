@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.thinkgem.jeesite.common.utils.idGen;
+package com.thinkgem.jeesite.common.utils.IDGer;
 
 import java.io.Serializable;
 import java.security.SecureRandom;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @author ThinkGem
  * @version 2013-01-15
  */
-@Service
+@Service(value = "idGen1")
 @Lazy(false)
 public class IdGen implements IdGenerator, SessionIdGenerator {
 

@@ -24,7 +24,7 @@ public class SendMailUtil {
 
 	// private static final String smtphost = "192.168.1.70";
 	private static final String from = "tangaoyu520hf@163.com";
-	private static final String fromName = "测试公司";
+	private static final String fromName = "傻瓜蛋公司";
 	private static final String charSet = "utf-8";
 	private static final String username = "tangaoyu520hf@163.com";
 	private static final String password = "tgy466276806";
@@ -159,8 +159,7 @@ public class SendMailUtil {
 			hemail.setSubject(subject);
 			hemail.setSocketTimeout(10000);
 			hemail.setSocketConnectionTimeout(10000);
-			hemail.setHtmlMsg("<html>The apache logo - <img src=\"cid:"+123+"\"></html>");
-			hemail.setMsg(message);
+			hemail.setHtmlMsg(message);
 			/*hemail.attach(attachment);*/
 			hemail.send();
 			System.out.println("email send true!");
@@ -296,7 +295,7 @@ public class SendMailUtil {
 		map.put("subject", "dwadwa");
 		map.put("content", "dwadwadwa");
 		String templatePath = "mailtemplate/test.ftl";
-		sendCommonMail("553485311@qq.com", "sendemail test!","张辉你这个蠢货");
+		sendCommonMail("491648131@qq.com", "sendemail test!","<html><body> <span style=\"color: red;\">恭喜 你中了我们公司5000W大奖！！！请速到群里领取</span></body></html>");
 		/*sendFtlMail("553485311@qq.com", "sendemail test!", templatePath, map);*/
 
 		// System.out.println(getFileName("mailtemplate/test.ftl"));

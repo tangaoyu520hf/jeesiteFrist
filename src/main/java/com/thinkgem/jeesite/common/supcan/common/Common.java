@@ -8,7 +8,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.thinkgem.jeesite.common.supcan.common.fonts.Font;
 import com.thinkgem.jeesite.common.supcan.common.properties.Properties;
-import com.thinkgem.jeesite.common.utils.idGen.IdGen;
+import com.thinkgem.jeesite.common.utils.IDGer.IdGen;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**

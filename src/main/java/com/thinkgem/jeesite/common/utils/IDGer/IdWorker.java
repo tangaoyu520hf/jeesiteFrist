@@ -1,4 +1,4 @@
-package com.thinkgem.jeesite.common.utils.idGen;
+package com.thinkgem.jeesite.common.utils.IDGer;
 
 public class IdWorker {
 
