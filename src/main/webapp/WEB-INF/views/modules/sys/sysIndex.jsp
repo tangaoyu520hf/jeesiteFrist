@@ -197,6 +197,25 @@
 			return false;
 		}// </c:if>
 	</script>
+	<script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+	<script type="text/javascript">
+		var sock = new SockJS('http://localhost/jeesite/myHandler');
+		sock.onopen = function() {
+			console.log('open');
+		};
+		sock.onmessage = function(e) {
+			console.log('message', e.data);
+		};
+		sock.onclose = function() {
+			console.log('close123');
+		};
+		var i = 1
+		window.setInterval(function () {
+			i++;
+			if(i>=5)
+				sock.send('test');
+		},5000)
+	</script>
 </head>
 <body>
 	<div id="main">

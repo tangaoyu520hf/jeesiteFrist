@@ -20,6 +20,7 @@
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -42,6 +43,7 @@
 			<param-name>targetFilterLifecycle</param-name>
 			<param-value>true</param-value>
 		</init-param>
+		<async-supported>true</async-supported>
 	</filter>
 	<filter-mapping>
 		<filter-name>shiroFilter</filter-name>
@@ -58,6 +60,7 @@
 	<filter>
 		<filter-name>sitemeshFilter</filter-name>
 		<filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
+		<async-supported>true</async-supported>
 	</filter>
 	<filter-mapping>
 		<filter-name>sitemeshFilter</filter-name>
@@ -77,6 +80,7 @@
 			<param-value>classpath*:/spring-mvc*.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springServlet</servlet-name>
@@ -136,6 +140,7 @@
 	<filter>
 		<filter-name>FileUploadFilter</filter-name>
 		<filter-class>com.ckfinder.connector.FileUploadFilter</filter-class>
+		<async-supported>true</async-supported>
 		<init-param>
 			<param-name>sessionCookieName</param-name>
 			<param-value>JSESSIONID</param-value>
