@@ -2,6 +2,7 @@ package com.thinkgem.jeesite.common.websocket;
 
 import java.util.Map;
 
+import com.thinkgem.jeesite.modules.sys.utils.UserUtils;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ public class WebSocketHandshakeInterceptor extends HttpSessionHandshakeIntercept
 	public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
                                    Map<String, Object> attributes) throws Exception {
 		System.out.println("握手之前····");
+		attributes.put("currentUser", UserUtils.getUser());
 		return super.beforeHandshake(request, response, wsHandler, attributes);
 	}
 
