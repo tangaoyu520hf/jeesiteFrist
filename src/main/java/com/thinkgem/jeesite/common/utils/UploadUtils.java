@@ -18,6 +18,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 
 /**
  * 文件上传工具类
@@ -192,10 +194,8 @@ public class UploadUtils {
 			ServletFileUpload upload = new ServletFileUpload(factory);
 
 			upload.setHeaderEncoding("UTF-8");
-
 			// 最大上传限制
 			upload.setSizeMax(maxSize);
-
 			/* FileItem */
 			List<FileItem> items = null;
 			// Parse the request

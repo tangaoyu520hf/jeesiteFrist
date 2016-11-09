@@ -17,6 +17,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import com.thinkgem.jeesite.common.utils.Encodes;
 import com.thinkgem.jeesite.common.utils.Exceptions;
+import org.aspectj.weaver.ast.Var;
 
 /**
  * 支持HMAC-SHA1消息签名 及 DES/AES对称加密的工具类.
@@ -256,5 +257,22 @@ public class Cryptos {
 		byte[] bytes = new byte[DEFAULT_IVSIZE];
 		random.nextBytes(bytes);
 		return bytes;
+	}
+
+	public static void main(String[] args) {
+		byte[] bytes = generateAesKey();
+		String s2 = Encodes.encodeBase64(bytes);
+		System.out.println(s2.length());
+		try {
+			String s1 = new String(bytes,"utf-8");
+			byte[] bytes1 = s1.getBytes("utf-8");
+			System.out.println(bytes1);
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		System.out.println("7dcbdaa058f179e35ae11c5545fa9297".length());
+		String sign = aesEncrypt("我爱你","7dcbdaa058f179e35ae11c5545fa9297");
+		String s = aesDecrypt(sign, "7dcbdaa058f179e35ae11c5545fa9297");
 	}
 }

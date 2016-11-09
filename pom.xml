@@ -741,6 +741,13 @@
             <version>1.5.4</version>
             <scope>test</scope>
         </dependency>
+        <!--unRAR-->
+        <dependency>
+            <groupId>com.github.junrar</groupId>
+            <artifactId>junrar</artifactId>
+            <version>0.7</version>
+        </dependency>
+
         <!-- 自定义jar依赖包
         <dependency>
             <groupId>com.thinkgem.jeesite</groupId>
