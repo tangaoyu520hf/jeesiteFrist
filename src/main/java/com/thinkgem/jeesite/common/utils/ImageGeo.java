@@ -4,8 +4,14 @@ import com.drew.metadata.*;
 import com.drew.metadata.exif.*;
 import com.drew.imaging.jpeg.*;
 import com.drew.lang.*;
-import java.io.*;
+import net.coobird.thumbnailator.Thumbnails;
 
+import java.io.*;
+import java.net.URL;
+
+/**
+ * 获取图片详细信息
+ */
 public class ImageGeo {
 	public double lat = 0.0;
 	public double lon = 0.0;
@@ -17,7 +23,6 @@ public class ImageGeo {
 			error = false;
 			File jpegFile = new File(filename);
 			Metadata metadata = JpegMetadataReader.readMetadata(jpegFile);
-
 			GpsDirectory gpsdir = (GpsDirectory) metadata
 					.getDirectory(GpsDirectory.class);
 			Rational latpart[] = gpsdir
@@ -54,10 +59,13 @@ public class ImageGeo {
 		}
 		System.out.println(filename + ": (" + lat + ", " + lon + ")");
 	}
+
 	
-	public static void main(String[] args) {
-		ImageGeo imageGeo = new ImageGeo(ImageGeo.class.getResource("IMAG0068.jpg").getFile());
+	public static void main(String[] args) throws IOException {
+		String file = ImageGeo.class.getClassLoader().getResource("IMAG0068.jpg").getFile();
+		ImageGeo imageGeo = new ImageGeo(file);
 		System.out.println(imageGeo.lon+","+imageGeo.lat);
+		Thumbnails.of(file).scale(0.25).toFile("D:/");
 	}
 
 }
